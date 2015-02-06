@@ -1427,6 +1427,11 @@ pre code {
   padding-right: 15px;
   padding-left: 15px;
 }
+#signinpage {
+  margin-right: 25%;
+  margin-top: 5%;
+
+}
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
 }
@@ -3932,7 +3937,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  position: fixed;
+  position: relative;
   right: 0;
   left: 0;
   z-index: 1030;
