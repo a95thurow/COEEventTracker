@@ -40,7 +40,7 @@ exports.parseToID = function(string) {
 	}
 	
 	id = string.match(/(\d)/g);
-	if (null !== id && (id.length == 8 || id.length == 9)) {
+	if (null !== id && (id.length === 8 || id.length === 9)) {
 		var ret = '';
 		for (var i = 0; i < id.length; i++) {
 			ret += id[i];
@@ -49,4 +49,4 @@ exports.parseToID = function(string) {
 	}
 	
 	return null;
-}
+};
