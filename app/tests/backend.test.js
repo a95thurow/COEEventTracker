@@ -1,7 +1,6 @@
 ﻿'use strict';
 
 var assert = require('assert');
-//var should = require('should/lib/ext/assert');
 var back = require('../controllers/core.server.controller');
 
 describe('Server back-end controllers', function() {
