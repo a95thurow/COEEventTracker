@@ -1,8 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/test1-test',
-	port: 3001,
+	db: 'mongodb://stickynote11:zachlandry@dogen.mongohq.com:10057/meanJs',
 	app: {
 		title: 'test1 - Test Environment'
 	},
