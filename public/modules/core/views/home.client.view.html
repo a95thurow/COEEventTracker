@@ -1,5 +1,8 @@
-<section   ng-app = "mwl.calendar" class="ng-cloak"  class = "ng-scope">
 
+<section  class="ng-cloak"  class = "ng-scope">
+<style>
+body {background-color: lightblue}
+</style>
      <div class="container-fluid">
 
       <div class="row" ng-controller="MainCtrl" id="demo">
@@ -53,18 +56,25 @@
 
            <script type="text/ng-template" id="modalContent.html">
             <div class="modal-header">
-              <h3 class="modal-title">Event action occurred!</h3>
+              <h3 class="modal-title">Event Information</h3>
             </div>
             <div class="modal-body">
-              <p>Action: <pre>{{ action }}</pre></p>
-              <p>Event: <pre>{{ event | json }}</pre></p>
-            </div>
+              <p>Event Name: <pre>{{ event.title }}</pre></p>
+              <p>Event Description: <pre>{{ event | json }}</pre></p>
+              <p>RSVP: <div class="form-group">
+                       <input type="text" placeholder="UFID">
+                       </div>
+                       <input type="submit" value="Submit" />
+                       </form></p>
+                       </div>
             <div class="modal-footer">
               <button class="btn btn-primary" ng-click="$modalInstance.close()">OK</button>
             </div>
-          </script>
-            
-
+          </script>           
+          <div id = "Hide">
+            <style>
+            #Hide {display:none;}
+            </style>
           <h3 id="event-editor">
             Edit events
             <button class="btn btn-primary pull-right" ng-click="events.push({title: 'New event', type: 'important'})">Add new</button>
@@ -115,20 +125,8 @@
                   <timepicker ng-model="event.ends_at" hour-step="1" minute-step="15" show-meridian="true"></timepicker>
                 </td>
                 <td><button class="btn btn-danger" ng-click="events.splice($index, 1)">Delete</button></td>
-                             <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-    <script src="//cdn.jsdelivr.net/angular.bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
-    <script src="src/app.js"></script>
-    <script src="docs/scripts/controllers/main.js"></script>
-    <script src="src/directives/mwlcalendar.js"></script>
-    <script src="src/filters/truncateEventTitle.js"></script>
-    <script src="src/services/calendarhelper.js"></script>
-    <script src="src/services/moment.js"></script>
-    <script src="src/directives/mwlcalendaryear.js"></script>
-    <script src="src/directives/mwlcalendarmonth.js"></script>
-    <script src="src/directives/mwlcalendarweek.js"></script>
-    <script src="src/directives/mwlcalendarday.js"></script>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+              </div>
+                          
    
               </tr>
             </tbody>

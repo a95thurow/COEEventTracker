@@ -59,17 +59,20 @@
 </head>
 
 <body >
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default  navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="/#">COE Event Tracker</a>
         </div>
-        <ul class="nav navbar-nav hidden-xs">
+        <ul class="nav navbar-nav navbar-right hidden-xs">
           <li><a href="/modules/users/views/authentication/signin.client.view.html">Sign In</a></li>
           <li><a href="/modules/users/views/authentication/signup.client.view.html">Sign Up</a></li>
+		   <li><a onclick="toggle_visibility('Hide');"href="/#">Edit Calendar</a></li>
+        	<li><a onclick="toggle_visibility('Hide');"href="/modules/users/views/authentication/checkin.client.view.html">Checkin</a></li>
         </ul>
       </div>
     </nav>
+
 	
 
 <section class="row" data-ng-controller="AuthenticationController">
