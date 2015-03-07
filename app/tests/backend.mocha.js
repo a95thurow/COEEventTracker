@@ -144,6 +144,11 @@ describe('Server back-end controllers', function() {
 				var id = back.parseToID(str);
 				assert.equal(id, null);
 			});
+			it('FSU ID card (not supported)', function() {
+				var str = '%B6400130006335309^LASTNAME/FIRST SOLEIL^44121200000?;6400130006335309=44121200000?';
+				var id = back.parseToID(str);
+				assert.equal(id, null);
+			});
 			it('All alphanumeric', function() {
 				var str = 'alphabetical string.sdfhr';
 				var id = back.parseToID(str);
