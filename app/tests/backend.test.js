@@ -74,6 +74,22 @@ describe('Server back-end controllers', function() {
 			});
 		});
 		describe('Malformed strings:', function() {
+			it('NULL string', function() {
+				var id = back.parseToID(null);
+				assert.equal(id, null);
+			});
+			it('INT string', function() {
+				var id = back.parseToID(165);
+				assert.equal(id, null);
+			});
+			it('DECIMAL string', function() {
+				var id = back.parseToID(14.85);
+				assert.equal(id, null);
+			});
+			it('Zero string', function() {
+				var id = back.parseToID(0);
+				assert.equal(id, null);
+			});
 			it('Malformed UF Card Swipe, wrong prefix code', function() {
 				var str = ';223644265430120064426543010?';
 				var id = back.parseToID(str);
@@ -154,6 +170,7 @@ describe('Server back-end controllers', function() {
 				var id = back.parseToID(str);
 				assert.equal(id, null);
 			});
+			
 		});
 	});
 });
