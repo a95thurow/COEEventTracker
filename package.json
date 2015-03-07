@@ -1,8 +1,8 @@
 {
-	"name": "test1",
+	"name": "COE-Event-Tracker",
 	"description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js",
 	"version": "0.0.1",
-	"author": "Amoney",
+	"author": "",
 	"engines": {
 		"node": "0.10.x",
 		"npm": "1.4.x"
@@ -10,7 +10,8 @@
 	"scripts": {
 		"start": "grunt",
 		"test": "grunt test",
-		"postinstall": "bower install --config.interactive=false"
+		"postinstall": "bower install --config.interactive=false",
+		"postinstall": "node ./node_modules/protractor/bin/webdriver-manager update"
 	},
 	"dependencies": {
 		"express": "~4.10.1",
@@ -57,12 +58,14 @@
 		"grunt-concurrent": "~1.0.0",
 		"grunt-mocha-test": "~0.12.1",
 		"grunt-karma": "~0.9.0",
+		"grunt-protractor-runner": "~1.2.1",
 		"load-grunt-tasks": "~1.0.0",
 		"karma": "~0.12.0",
 		"karma-jasmine": "~0.2.1",
 		"karma-coverage": "~0.2.0",
 		"karma-chrome-launcher": "~0.1.2",
 		"karma-firefox-launcher": "~0.1.3",
-		"karma-phantomjs-launcher": "~0.1.2"
+		"karma-phantomjs-launcher": "~0.1.2",
+		"protractor": "~x"
 	}
 }

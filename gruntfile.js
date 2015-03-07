@@ -8,7 +8,8 @@ module.exports = function(grunt) {
 		clientViews: ['public/modules/**/views/**/*.html'],
 		clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
 		clientCSS: ['public/modules/**/*.css'],
-		mochaTests: ['app/tests/**/*.js']
+		mochaTests: ['app/tests/**/*.mocha.js'],
+		protTests: ['app/tests/**/*.prot.js']
 	};
 
 	// Project Configuration
@@ -139,11 +140,19 @@ module.exports = function(grunt) {
 			unit: {
 				configFile: 'karma.conf.js'
 			}
+		},
+		protractor: {
+			options: {
+				keepAlive: true,
+				configFile: 'protractor_conf.js'
+			},
+			run: {}
 		}
 	});
 
 	// Load NPM tasks
 	require('load-grunt-tasks')(grunt);
+	//grunt.loadNpmTasks('grunt-protractor-runner');
 
 	// Making grunt default to force in order not to break the project.
 	grunt.option('force', true);
@@ -173,5 +182,8 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', ['lint', 'loadConfig', 'ngAnnotate', 'uglify', 'cssmin']);
 
 	// Test task.
-	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
+	grunt.registerTask('test', [
+		'env:test', 
+		'mochaTest', 
+		'protractor:run']);
 };
