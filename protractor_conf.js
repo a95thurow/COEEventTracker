@@ -32,7 +32,7 @@ exports.config = {
   // This will be passed to the Selenium jar as the system property
   // webdriver.chrome.driver. If null, Selenium will
   // attempt to find ChromeDriver using PATH.
-  chromeDriver: 'node_modules/protractor/selenium',
+  chromeDriver: 'node_modules/protractor/selenium/chromedriver.exe',
 
   // ---- 2. To connect to a Selenium Server which is already running ----------
   // The address of a running Selenium Server. If specified, Protractor will
@@ -71,7 +71,7 @@ exports.config = {
 
   // Spec patterns are relative to the location of this config.
   specs: [
-    'app/tests/*_prot.js'
+    'app/tests/**/*.prot.js'
   ],
 
   // Patterns to exclude.
