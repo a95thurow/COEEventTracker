@@ -143,10 +143,11 @@ module.exports = function(grunt) {
 		},
 		protractor: {
 			options: {
+				configFile: 'protractor_conf.js',
 				keepAlive: true,
-				configFile: 'protractor_conf.js'
+				args: {}
 			},
-			run: {}
+			run: {},
 		}
 	});
 
@@ -182,8 +183,13 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', ['lint', 'loadConfig', 'ngAnnotate', 'uglify', 'cssmin']);
 
 	// Test task.
-	grunt.registerTask('test', [
-		'env:test', 
-		'mochaTest', 
+	grunt.registerTask('test', ['t_all']);
+	
+	grunt.registerTask('t_all', [
+		't_unit',
 		'protractor:run']);
+		
+	grunt.registerTask('t_unit', [
+		'env:test',
+		'mochaTest']);
 };

@@ -9,7 +9,7 @@
 	},
 	"scripts": {
 		"start": "grunt",
-		"test": "grunt test",
+		"test": "grunt t_all",
 		"postinstall": "bower install --config.interactive=false",
 		"postinstall": "node ./node_modules/protractor/bin/webdriver-manager update"
 	},
