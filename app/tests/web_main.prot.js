@@ -6,7 +6,13 @@ var f_homebutton = function () {
 	$('.navbar-brand').click();
 }
 
+var f_adminbutton = function () {
+	var buttons = elment(by.class('ui-route')).all(by.tagName('a'));
+	buttons.get(0).click();
+}
+
 describe ('Protractor front-end, web tests:', function() {
+
 	describe ('Basic funcitonality:', function() {
 		it ('Server connection', function() {
 			browser.get('http://localhost:3000/');
@@ -14,8 +20,20 @@ describe ('Protractor front-end, web tests:', function() {
 		});
 	});
 
-	it ('Main Page:', function() {
-		f_homebutton();
+	describe ('Page Testing:', function() {
+
+		beforeEach(function() {
+			browser.get('http://localhost:3000/');
+		});
+
+		it ('Main Page:', function() {
+			f_homebutton();
+		});
+
+		it ('Admin Page', function() {
+			f_homebutton();
+			f_adminbutton();
+		})
 	});
 });
 

@@ -190,6 +190,8 @@ exports.config = {
   // You can specify a file containing code to run by setting onPrepare to
   // the filename string.
   onPrepare: function() {
+    var SpecReporter = require('jasmine-spec-reporter');
+    jasmine.getEnv().addReporter(new SpecReporter({displayStackTrace: true}));
     // At this point, global variable 'protractor' object will be set up, and
     // globals from the test framework will be available. For example, if you
     // are using Jasmine, you can add a reporter with:
@@ -266,7 +268,7 @@ exports.config = {
   // See the full list at https://github.com/juliemr/minijasminenode/tree/jasmine1
   jasmineNodeOpts: {
     // If true, display spec names.
-    isVerbose: false,
+    isVerbose: true,
     // If true, print colors to the terminal.
     showColors: true,
     // If true, include stack traces in failures.
@@ -290,7 +292,8 @@ exports.config = {
     // internally compiled to a RegExp.
     grep: 'pattern',
     // Inverts 'grep' matches
-    invertGrep: false
+    invertGrep: false,
+    silent: true
   },
 
   // Options to be passed to Mocha.
