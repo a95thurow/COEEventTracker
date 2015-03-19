@@ -48,11 +48,26 @@ module.exports = function(grunt) {
 				options: {
 					livereload: true
 				}
+			},
+			mochaTests: {
+				files: watchFiles.mochaTests,
+				tasks: ['jshint'],
+				options: {
+					livereload: true
+				}
+			},
+			protTests: {
+				files: watchFiles.protTests,
+				tasks: ['jshint'],
+				options: {
+					livereload: true
+				}
 			}
 		},
 		jshint: {
 			all: {
-				src: watchFiles.clientJS.concat(watchFiles.serverJS),
+				//src: watchFiles.clientJS.concat(watchFiles.serverJS),
+				src: watchFiles.mochaTests.concat(watchFiles.protTests),
 				options: {
 					jshintrc: true
 				}
@@ -168,7 +183,8 @@ module.exports = function(grunt) {
 	});
 
 	// Default task(s).
-	grunt.registerTask('default', ['lint', 'concurrent:default']);
+	//grunt.registerTask('default', ['lint', 'concurrent:default']);
+	grunt.registerTask('default', ['concurrent:default']);
 
 	// Debug task.
 	grunt.registerTask('debug', ['lint', 'concurrent:debug']);
@@ -177,7 +193,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('secure', ['env:secure', 'lint', 'concurrent:default']);
 
 	// Lint task(s).
-	grunt.registerTask('lint', ['jshint', 'csslint']);
+	grunt.registerTask('lint', ['jshint']);//, 'csslint']);
 
 	// Build task(s).
 	grunt.registerTask('build', ['lint', 'loadConfig', 'ngAnnotate', 'uglify', 'cssmin']);
