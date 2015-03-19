@@ -2,6 +2,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+
 	<title>COE Event Tracker</title>
 
 	<!-- General META -->
@@ -46,7 +48,7 @@
 <body class="ng-cloak">
 	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-default"></header>
 	<section class="content">
-			<div id="upto-calendar-container-KQeO" class="upto-calendar-plugin"><script>!function(c,b,a){function d(h){var e=document.getElementById("upto-calendar-container-"+c),f=document.createElement("SCRIPT"),g="https://upto.com/js/plugin.js";f.onreadystatechange=function(){if(f.readyState==="loaded"||f.readyState==="complete"){f.onreadystatechange=null;h()}};f.onload=function(){h()};f.setAttribute("src",g);e.parentNode.insertBefore(f,e)}d(function(){upto.init(c)})}("KQeO");</script></div>
+			
 
 		<section class="container">
 			{% block content %}{% endblock %}
