@@ -3,6 +3,7 @@
 /**
  * Module dependencies.
  */
+ var LocalStrategy    = require('passport-local').Strategy;
 var passport = require('passport'),
 	User = require('mongoose').model('User'),
 	path = require('path'),
@@ -26,6 +27,7 @@ module.exports = function() {
 		});
 	});
 
+	
 	// Initialize strategies
 	config.getGlobbedFiles('./config/strategies/**/*.js').forEach(function(strategy) {
 		require(path.resolve(strategy))();

@@ -25,17 +25,9 @@ angular.module('users').config(['$stateProvider',
 			url: '/signin',
 			templateUrl: 'modules/users/views/authentication/signin.client.view.html'
 		}).
-		state('admin', {
-			url: '/admin',
-			templateUrl: 'modules/core/views/admin.html'
-		}).
 		state('metrics', {
 			url: '/metrics',
 			templateUrl: 'modules/core/views/metrics.html'
-		}).
-		state('attendance', {
-			url: '/studentattendance',
-			templateUrl: 'modules/core/views/studentattendance.html'
 		}).
 		state('forgot', {
 			url: '/password/forgot',
