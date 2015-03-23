@@ -33,9 +33,9 @@ exports.config = {
   // webdriver.chrome.driver. If null, Selenium will
   // attempt to find ChromeDriver using PATH.
   // linux version
-  chromeDriver: 'node_modules/protractor/selenium/chromedriver',
+  //chromeDriver: 'node_modules/protractor/selenium/chromedriver',
   // windows version
-  //chromeDriver: 'node_modules/protractor/selenium/chromedriver.exe',
+  chromeDriver: 'node_modules/protractor/selenium/chromedriver.exe',
 
   // ---- 2. To connect to a Selenium Server which is already running ----------
   // The address of a running Selenium Server. If specified, Protractor will
