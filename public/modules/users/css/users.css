@@ -12,3 +12,19 @@
 	right: 10px;
 	position: absolute;
 }
+
+.login-form-bg {
+	background-color:lightblue;
+	border: 15px solid;
+	border-radius:100px;
+	border-color:lightblue;
+	margin-top:75px;
+}
+
+.admin-page-bg{
+    background-color:lightblue;
+	border: 15px solid;
+	border-radius:100px;
+	border-color:lightblue;
+	margin-top:75px;
+}

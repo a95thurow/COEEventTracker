@@ -18,5 +18,12 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.error = response.message;
 			});
 		};
+
+		$scope.checkin = function() { //if a card is swiped, edit down to id only
+			var id = document.getElementById("swipeufid").value;
+			if (id.length > 8){
+				document.getElementById("swipeufid").value = id.substring(4,12);
+			}
+		};
 	}
 ]);
