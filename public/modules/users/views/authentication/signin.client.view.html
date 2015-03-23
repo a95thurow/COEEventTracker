@@ -4,6 +4,7 @@
 }
 </style>
 <section class="row" id="signinpage" data-ng-controller="AuthenticationController">
+	
 	<h3 class="col-md-12 text-center">Sign in below</h3>
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
@@ -11,6 +12,7 @@
 				<div class="form-group">
 					<label for="username">Username/UFID</label>
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="UFID">
+
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
