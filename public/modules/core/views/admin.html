@@ -29,7 +29,17 @@ section{
 }
 #butt2{
     height: 10%;
-    width:10%;
+    width:11%;
+    background: #1919ff; /* Or whatever background color you want to use */
+    color:white;
+    border-radius: 5px;
+    display: none;
+}
+#butt3{
+    height: 10%;
+    width:11%;
+    margin-top: -8%;
+    margin-left: 20%;
     background: #1919ff; /* Or whatever background color you want to use */
     color:white;
     border-radius: 5px;
@@ -67,6 +77,16 @@ form{
 #buttons{
  margin-left: 15%;
 }
+#cancel{
+	margin-left: 24%;
+}
+#preview{
+	display: none;
+	margin-top: 10%;
+}
+h5{
+	margin-top: -5%;
+}
 </style>
  <script type="text/javascript">
   $(document).ready(function(){
@@ -74,8 +94,10 @@ form{
 	 $("form").toggle("fast");
 	 $("#butt").toggle("fast");
 	 $("#butt2").toggle("fast");
+	  $("#butt3").toggle("fast");
 	  $("#checkin").toggle("fast");
 	  $("#metrics").toggle("fast");
+	  $("#preview").toggle("fast");
   });
 });
  </script>
@@ -87,6 +109,22 @@ form{
 	 $("#butt2").toggle("fast");
 	  $("#checkin").toggle("fast");
 	  	  $("#metrics").toggle("fast");
+	  	   $("#butt3").toggle("fast");
+	  $("#preview").toggle("fast");
+
+  });
+});
+ </script>
+ <script type="text/javascript">
+  $(document).ready(function(){
+   $("#butt3").click(function () {
+	 $("form").toggle("fast");
+	 $("#butt").toggle("fast");
+	 $("#butt2").toggle("fast");
+	  $("#checkin").toggle("fast");
+	  	  $("#metrics").toggle("fast");
+	  	   $("#butt3").toggle("fast");
+	 	  $("#preview").toggle("fast");
 
 
   });
@@ -103,21 +141,37 @@ form{
 </div>
 </a>
 		<br>
-		<form>
+		<form ng-submit = "addevent()">
 		Event Title:<br>
-		<input type="text" id = "title">
+		<input type="text" id = "title" ng-model ="title">
 		<br>
 		<br>
 		Event Details:<br>
-		<textarea rows = "8" id = "details"></textarea>
+		<textarea rows = "8" id = "details" ng-model = "Details"></textarea>
 		</form>
 		<a href="">
 				<br>
 		<div id = "butt2">	
 			<br>
-		<p id = "submit">Submit!</p>
+		<p id = "submit" ng-click="addevent()">Submit!</p>
 		</div>
-	</a>
+		</a>
+		<a href = "">
+		<div id = "butt3">	
+			<br>
+		<p id = "cancel">Cancel</p>
+		</div>
+		</a>
+		<div id = "preview">	
+			<h5>Here is a preview of how your article will look:</h5>	
+			<br>
+			<h3>{{title}}</h3>
+			<p>{{Details}}</p>
+			<div ng-repeat = "x in posts">
+				{{x.title}} <br> {{x.Details}}
+			</div>	
+		</div>
+	
 
 <a href="/#!/checkin">
 <div id = "checkin">
@@ -126,7 +180,6 @@ form{
 
 </div>
 </a>
-
 <a href="/#!/metrics">
 <div id = "metrics">
 <br>
@@ -137,4 +190,27 @@ form{
 
 
 </div>
+</section>
+<section data-ng-controller="EventsController">
+    <div class="page-header">
+        <h1>New Event</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
 </section>
