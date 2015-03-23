@@ -1,5 +1,12 @@
 <section data-ng-controller="EventsController">
+    <style type="text/css">
+    #details{
+    width: 100%;
+    height: 100%;
+    }
+    </style>
     <div class="page-header">
+        <br>
         <h1>New Event</h1>
     </div>
     <div class="col-md-12">
@@ -7,8 +14,12 @@
             <fieldset>
                 <div class="form-group">
                     <label class="control-label" for="name">Name</label>
+
                     <div class="controls">
                         <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                        <br>
+                        <label class="control-label" for="details">Details</label>
+                        <textarea rows = "8" data-ng-model = "details" id = "details" placeholder="Details here!" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
