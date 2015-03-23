@@ -1,7 +1,6 @@
 ﻿'use strict';
 
 var assert = require('assert');
-//var should = require('should/lib/ext/assert');
 var back = require('../controllers/core.server.controller');
 
 describe('Server back-end controllers', function() {
@@ -74,6 +73,22 @@ describe('Server back-end controllers', function() {
 			});
 		});
 		describe('Malformed strings:', function() {
+			it('NULL string', function() {
+				var id = back.parseToID(null);
+				assert.equal(id, null);
+			});
+			it('INT string', function() {
+				var id = back.parseToID(165);
+				assert.equal(id, null);
+			});
+			it('DECIMAL string', function() {
+				var id = back.parseToID(14.85);
+				assert.equal(id, null);
+			});
+			it('Zero string', function() {
+				var id = back.parseToID(0);
+				assert.equal(id, null);
+			});
 			it('Malformed UF Card Swipe, wrong prefix code', function() {
 				var str = ';223644265430120064426543010?';
 				var id = back.parseToID(str);
@@ -129,6 +144,11 @@ describe('Server back-end controllers', function() {
 				var id = back.parseToID(str);
 				assert.equal(id, null);
 			});
+			it('FSU ID card (not supported)', function() {
+				var str = '%B6400130006335309^LASTNAME/FIRST SOLEIL^44121200000?;6400130006335309=44121200000?';
+				var id = back.parseToID(str);
+				assert.equal(id, null);
+			});
 			it('All alphanumeric', function() {
 				var str = 'alphabetical string.sdfhr';
 				var id = back.parseToID(str);
@@ -154,6 +174,7 @@ describe('Server back-end controllers', function() {
 				var id = back.parseToID(str);
 				assert.equal(id, null);
 			});
+			
 		});
 	});
 });
