@@ -47,7 +47,7 @@
 
     
 	<!-- /Section: about -->
-	
+
 
 	<!-- Section: services -->
     <section id="service" class="home-section text-center bg-gray">
@@ -58,6 +58,16 @@
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="wow bounceInDown" data-wow-delay="0.4s">
 					<div class="section-heading">
+
+					<h3 id = "toasty">Welcome to the College of Engineering Events Page!</h3>
+					<p id = "toasty">Here you can find information about the upcoming events for the University of Florida College of Engineering. Click an event to view the information. Be sure to be sywpe your student ID at the events you attentd!</p>
+					<style type="text/css">
+							#toasty{
+								float:left;
+								text-align: left;
+							}
+						</style>
+						<br>
 					<h2>Events</h2>
 					
 
@@ -150,6 +160,10 @@
        <div id = "show4" class = "test">
       <p class = "eventinfo">Saying they couldn’t bear to see their boy upset, unhappy local couple Denise and Peter Gale resolved to stay together for the sake of one of their children, 7-year-old Daniel, sources reported Monday. “It would just break Daniel’s heart if we did this to him while he’s still so young—I can’t even imagine how awful that would be for him,” said the 36-year-old mother of three, adding that she wouldn’t be able to handle the devastated look on her oldest child’s face when they sat him down and told him they were getting divorced. “At the very least, we’ll wait a while until he’s off to college and the house is a little quieter. Then maybe it’s something we can address.” Gale added that if another decade of marital strife was the price she would have to pay to give her first son a happy childhood, it was well worth it. -The Onion</p>
   	</div>
+  	 <li id = "showme4" ng-repeat = "x in events"><a href="".leanModal();><strong>{{x.title}}</strong></a></li>
+       <div id = "show4" class = "test">
+      <p class = "eventinfo" ng-repeat = "x in events">{{x.Details}}</p>
+  	</div>
 
    </ul>
 
@@ -162,70 +176,16 @@
 			</div>
 		</div>
 		<div class="container">
-		<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-				<hr class="marginbot-50">
-			</div>
-		</div>
-        <div class="row">
-            <div class="col-sm-3 col-md-3">
-				<div class="wow fadeInLeft" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="modules/squadfree/img/icons/service-icon-1.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Print</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="modules/squadfree/img/icons/service-icon-2.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Web Design</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="modules/squadfree/img/icons/service-icon-3.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Photography</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInRight" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="modules/squadfree/img/icons/service-icon-4.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Cloud System</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-        </div>		
+			
 		</div>
 	</section>
 	<!-- /Section: services -->
 	
-
+<style type="text/css">
+#contact{
+	display: none;
+}
+</style>
 	
 
 	<!-- Section: contact -->
@@ -343,7 +303,7 @@
 						</a>
 					</div>
 					</div>
-					<p>&copy;Copyright 2014 - Squad. All rights reserved.</p>
+					<p>&copy;Copyright 2015 - Satan. All rights reserved.</p>
 				</div>
 			</div>	
 		</div>
