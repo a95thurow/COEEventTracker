@@ -1,6 +1,10 @@
 <section data-ng-controller="EventsController" data-ng-init="findOne()">
 	<div class="page-header">
+		<br>
+		<br>
+		<br>
 		<h1 data-ng-bind="event.name"></h1>
+		<p data-ng-bind="event.details"></p>
 	</div>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == event.user._id))">
 		<a class="btn btn-primary" href="/#!/events/{{event._id}}/edit">
@@ -10,12 +14,4 @@
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="event.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="event.user.displayName"></span>
-		</em>
-	</small>
-</section>
+	</section>

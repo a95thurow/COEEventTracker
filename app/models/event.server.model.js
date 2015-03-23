@@ -14,6 +14,11 @@ var EventSchema = new Schema({
 		type: String,
 		default: '',
 		trim: true
+	},
+	details: {
+		type: String,
+		default: '',
+		trim: true
 	}
 });
 
