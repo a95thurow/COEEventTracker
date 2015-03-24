@@ -19,7 +19,23 @@ var EventSchema = new Schema({
 		type: String,
 		default: '',
 		trim: true
+	},
+	date: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	time: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	pointValue: {
+ 		type: String,
+ 		default: '',
+ 		trim: true
 	}
+
 });
 
 mongoose.model('Event', EventSchema);
