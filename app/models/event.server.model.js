@@ -35,6 +35,7 @@ var EventSchema = new Schema({
  		default: '',
  		trim: true
 	}
+
 });
 
 mongoose.model('Event', EventSchema);
