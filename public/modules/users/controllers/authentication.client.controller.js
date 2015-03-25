@@ -20,9 +20,15 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 		};
 
 		$scope.checkin = function() { //if a card is swiped, edit down to id only
+<<<<<<< HEAD
 			var id = document.getElementById('swipeufid').value;
 			if (id.length > 8){
 				document.getElementById('swipeufid').value = id.substring(4,12);
+=======
+			var id = document.getElementById("swipeufid").value;
+			if (id.length > 8){
+				document.getElementById("swipeufid").value = id.substring(4,12);
+>>>>>>> origin/sprint-2
 			}
 		};
 	}

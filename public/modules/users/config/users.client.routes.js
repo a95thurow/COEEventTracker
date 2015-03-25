@@ -33,6 +33,13 @@ angular.module('users').config(['$stateProvider',
 			url: '/metrics',
 			templateUrl: 'modules/core/views/metrics.html'
 		}).
+<<<<<<< HEAD
+=======
+		state('attendance', {
+			url: '/studentattendance',
+			templateUrl: 'modules/core/views/studentattendance.html'
+		}).
+>>>>>>> origin/sprint-2
 		state('forgot', {
 			url: '/password/forgot',
 			templateUrl: 'modules/users/views/password/forgot-password.client.view.html'

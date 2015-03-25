@@ -11,7 +11,7 @@ describe ('Protractor sign in tests', function() {
 		browser.get('http://localhost:3000/#!/signin');
 	});
 
-	it('should not redirect upon incorrect login AND should display error message', function() {
+	it('should not redirect upon incorrect login', function() {
 		username.clear();
 		password.clear();
 
@@ -23,6 +23,19 @@ describe ('Protractor sign in tests', function() {
 		enter.perform();
 
 		expect(browser.getCurrentUrl()).toEqual(signinURL);
+	});
+
+	it('should display error message upon incorrect login', function() {
+		username.clear();
+		password.clear();
+
+		username.sendKeys('test');
+		password.sendKeys('test');
+
+		signinURL = browser.getCurrentUrl();
+
+		enter.perform();
+
 		expect(error.getText()).toEqual('Unknown user or invalid password');
 	});
 

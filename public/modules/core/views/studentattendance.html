@@ -1,0 +1,59 @@
+<style type="text/css">
+section{
+	margin-top: 7%;
+	margin-left: 0%;
+	background-color: lightblue;
+}
+</style>
+<section  data-ng-controller="HomeController">
+<center><h1> Student Attendance </h1></center>
+</section>
+
+<div class="styled-select">
+   <select>
+      <option>Event List</option>
+      <option>Event 1</option>
+      <option>Event 2</option>
+      <option>Event 3</option>
+   </select>
+</div>
+
+<style>
+.styled-select select {
+   background: white;
+   font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+   width: 268px;
+   padding: 5px;
+   font-size: 20px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   margin-left:0%;
+   -webkit-appearance: none;
+   }
+</style>
+
+<br>
+<br>
+
+
+<body>
+	<div class = "container" ng-controller = "Home-Controller">
+		
+
+		<table class = "table">
+			<thread>
+				<tr>
+					<th>Student ID</th>
+				</tr>
+			</thread>
+
+			<tbody>
+				<tr ng-repeat "student">
+					<td>{{student.StudentID}}</td>
+			</tbody>
+		</table>
+	</div>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+</body>

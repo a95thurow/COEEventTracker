@@ -16,8 +16,8 @@ describe ('Protractor front-end, web tests:', function() {
 	describe ('Basic funcitonality:', function() {
 		it ('Server connection', function() {
 			browser.get('http://localhost:3000/');
-			//expect(browser.getTitle()).toEqual('COE Event Tracker');
-			assert.equal(browser.getTitle(), 'COE Event Tracker');
+			expect(browser.getTitle()).toEqual('COE Event Tracker');
+			//assert.equal(browser.getTitle(), 'COE Event Tracker');
 			//assert.equal(webdriver.getTitle(), 'COE Event Tracker');
 		});
 	});

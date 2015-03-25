@@ -1,5 +1,9 @@
 <style type="text/css">
 section{
+<<<<<<< HEAD
+=======
+	background-color: none;
+>>>>>>> origin/sprint-2
 	margin-top: 7%;
 	margin-left: 10%;
 }
@@ -13,22 +17,33 @@ section{
 #butt{
     height: 20%;
     width:30%;
+<<<<<<< HEAD
     background: #1919ff; /* Or whatever background color you want to use */
     color:white;
+=======
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
+>>>>>>> origin/sprint-2
     border-radius: 5px;
     border
 }
 #checkin{
     height: 20%;
     width:30%;
+<<<<<<< HEAD
     background: #1919ff; /* Or whatever background color you want to use */
     color:white;
+=======
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
+>>>>>>> origin/sprint-2
     border-radius: 5px;
     margin-top: 0%;
     margin-right: 30%;
 }
 #butt2{
     height: 10%;
+<<<<<<< HEAD
     width:11%;
     background: #1919ff; /* Or whatever background color you want to use */
     color:white;
@@ -42,18 +57,41 @@ section{
     margin-left: 20%;
     background: #1919ff; /* Or whatever background color you want to use */
     color:white;
+=======
+    width:10%;
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
+>>>>>>> origin/sprint-2
     border-radius: 5px;
     display: none;
 }
 #metrics{
     height: 20%;
     width:30%;
+<<<<<<< HEAD
     background: #1919ff; /* Or whatever background color you want to use */
     color:white;
+=======
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
+>>>>>>> origin/sprint-2
     border-radius: 5px;
     margin-top: 5%;
     margin-right: 30%;
 }
+<<<<<<< HEAD
+=======
+
+#attendance{
+    height: 20%;
+    width:30%;
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
+    border-radius: 5px;
+    margin-top: 5%;
+   
+}
+>>>>>>> origin/sprint-2
 #met{
 	margin-left: 20%;
 }
@@ -77,6 +115,7 @@ form{
 #buttons{
  margin-left: 15%;
 }
+<<<<<<< HEAD
 #cancel{
 	margin-left: 24%;
 }
@@ -87,6 +126,8 @@ form{
 h5{
 	margin-top: -5%;
 }
+=======
+>>>>>>> origin/sprint-2
 </style>
  <script type="text/javascript">
   $(document).ready(function(){
@@ -94,10 +135,16 @@ h5{
 	 $("form").toggle("fast");
 	 $("#butt").toggle("fast");
 	 $("#butt2").toggle("fast");
+<<<<<<< HEAD
 	  $("#butt3").toggle("fast");
 	  $("#checkin").toggle("fast");
 	  $("#metrics").toggle("fast");
 	  $("#preview").toggle("fast");
+=======
+	  $("#checkin").toggle("fast");
+	  $("#metrics").toggle("fast");
+	  $("#attendance").toggle("fast");
+>>>>>>> origin/sprint-2
   });
 });
  </script>
@@ -109,6 +156,7 @@ h5{
 	 $("#butt2").toggle("fast");
 	  $("#checkin").toggle("fast");
 	  	  $("#metrics").toggle("fast");
+<<<<<<< HEAD
 	  	   $("#butt3").toggle("fast");
 	  $("#preview").toggle("fast");
 
@@ -125,6 +173,9 @@ h5{
 	  	  $("#metrics").toggle("fast");
 	  	   $("#butt3").toggle("fast");
 	 	  $("#preview").toggle("fast");
+=======
+	  	  $("#attendance").toggle("fast");
+>>>>>>> origin/sprint-2
 
 
   });
@@ -141,6 +192,7 @@ h5{
 </div>
 </a>
 		<br>
+<<<<<<< HEAD
 		<form ng-submit = "addevent()">
 		Event Title:<br>
 		<input type="text" id = "title" ng-model ="title">
@@ -148,11 +200,54 @@ h5{
 		<br>
 		Event Details:<br>
 		<textarea rows = "8" id = "details" ng-model = "Details"></textarea>
+=======
+		<form>
+		Event Title:<br>
+		<input type="text" id = "title">
+		<br>
+		<br>
+		Event Date:<br>
+			<link href="lib/jquery-ui-1.11.4.custom/jquery-ui.theme.css" rel="stylesheet" type="text/css" />	 
+	<!-- add scripts -->
+			<script src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+			<script src="lib/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+
+			<input name="dob" id="datepicker" type="date" placeholder="mm/dd/yyyy">
+			<script>
+				$(function() {$( "#datepicker" ).datepicker();});
+			</script>
+
+        <br>
+		<br>
+
+		Event Time:
+
+		<input id='timepicker' type='text'name='timepicker'/>
+
+		<link rel='stylesheet' type='text/css'href='lib/TimePicki-master/css/timepicki.css'/>
+		<script type='text/javascript'src='lib/TimePicki-master/js/timepicki.js'></script>
+
+		<script>
+		$('#timepicker').timepicki(); 
+		</script>
+
+		<br>
+
+
+		Point Value:
+		<br>
+		<input id = "point" type='text' name = 'pointpicker'/>
+        <br>
+		<br>
+		Event Details:<br>
+		<textarea rows = "8" id = "details"></textarea>
+>>>>>>> origin/sprint-2
 		</form>
 		<a href="">
 				<br>
 		<div id = "butt2">	
 			<br>
+<<<<<<< HEAD
 		<p id = "submit" ng-click="addevent()">Submit!</p>
 		</div>
 		</a>
@@ -172,6 +267,11 @@ h5{
 			</div>	
 		</div>
 	
+=======
+		<p id = "submit">Submit!</p>
+		</div>
+	</a>
+>>>>>>> origin/sprint-2
 
 <a href="/#!/checkin">
 <div id = "checkin">
@@ -180,6 +280,10 @@ h5{
 
 </div>
 </a>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/sprint-2
 <a href="/#!/metrics">
 <div id = "metrics">
 <br>
@@ -188,6 +292,7 @@ h5{
 </div>
 </a>
 
+<<<<<<< HEAD
 
 </div>
 </section>
@@ -214,3 +319,16 @@ h5{
         </form>
     </div>
 </section>
+=======
+<a href="/#!/studentattendance">
+<div id = "attendance">
+<br>
+<p id = "met">View Student Attendance</p>
+
+</div>
+</a>
+
+
+</div>
+</section>
+>>>>>>> origin/sprint-2
