@@ -25,7 +25,7 @@ describe ('Protractor front-end, web tests:', function() {
 		beforeEach(function() {
 			browser.get('http://localhost:3000/');
 		});
-
+		/*
 		it ('Main Page:', function() {
 			f_homebutton();
 		});
@@ -34,6 +34,7 @@ describe ('Protractor front-end, web tests:', function() {
 			f_homebutton();
 			f_adminbutton();
 		});
+		*/
 	});
 });
 
