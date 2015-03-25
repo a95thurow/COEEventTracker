@@ -3,7 +3,6 @@
 
 <head>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
-
 	<title>COE Event Tracker</title>
 
 	<!-- General META -->
@@ -32,9 +31,9 @@
 	<meta name="twitter:description" content="{{description}}">
 	<meta name="twitter:url" content="{{url}}">
 	<meta name="twitter:image" content="/img/brand/logo.png">
-
 	<!-- Fav Icon -->
 	<link href="/modules/core/img/FaviconImage.png" rel="shortcut icon" type="image/png">
+	
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 
@@ -46,7 +45,7 @@
 </head>
 
 <body class="ng-cloak">
-	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-default"></header>
+	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-default"></header>
 	<section class="content">
 			
 

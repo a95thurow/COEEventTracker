@@ -1,4 +1,10 @@
-<div class="container" data-ng-controller="HeaderController">
+<style type="text/css">
+	#datHeaderDough{
+		position: relative;
+		
+	}
+</style>
+<div id = "datHeaderDough" class="container" data-ng-controller="HeaderController">
 		</button>
 		<a href="/#!/" class="navbar-brand">COE Event Tracker</a>
         
@@ -13,6 +19,9 @@
 					<li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
 						<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
 					</li>
+					<li>
+						<a href="/#!/admin">Admin Page</a>
+					</li>
 				</ul>
 				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 			</li>
@@ -21,15 +30,6 @@
 			<li class="divider-vertical"></li>
 			<li ui-route="/signin" ng-class="{active: $uiRoute}">
 				<a href="/#!/signin">Sign In</a>
-			</li>
-
-			<li class="divider-vertical"></li>
-			<li ui-route="/signup" ng-class="{active: $uiRoute}">
-				<a href="/#!/signup">Sign Up</a>
-			</li>
-			
-			<li ui-route="" ng-class="{active: $uiRoute}">
-				<a href="/#!/admin">Admin Page</a>
 			</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
