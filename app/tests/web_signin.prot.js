@@ -32,11 +32,31 @@ describe ('Protractor sign in tests', function() {
 		username.sendKeys('test');
 		password.sendKeys('test');
 
-		signinURL = browser.getCurrentUrl();
-
 		enter.perform();
 
 		expect(error.getText()).toEqual('Unknown user or invalid password');
+	});
+
+	it('should say missing credentials if a username field is left blank', function() {
+		username.clear();
+		password.clear();
+
+		password.sendKeys('test');
+
+		enter.perform();
+
+		expect(error.getText()).toEqual('Missing credentials');
+	});
+
+	it('should say missing credentials if a password field is left blank', function() {
+		username.clear();
+		password.clear();
+
+		username.sendKeys('test');
+
+		enter.perform();
+
+		expect(error.getText()).toEqual('Missing credentials');
 	});
 
 	it('should successfully sign in test user and redirect to home page', function() {
