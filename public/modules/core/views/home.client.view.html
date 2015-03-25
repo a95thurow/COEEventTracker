@@ -25,7 +25,11 @@
 
 </head>
 
-
+<style type="text/css">
+.intro{
+	margin-top: -10%;
+}
+</style>
 	<!-- Section: intro -->
     <section id="intro" class="intro">
 	
@@ -60,7 +64,7 @@
 					<div class="section-heading">
 
 					<h3 id = "toasty">Welcome to the College of Engineering Events Page!</h3>
-					<p id = "toasty">Here you can find information about the upcoming events for the University of Florida College of Engineering. Click an event to view the information. Be sure to be sywpe your student ID at the events you attentd!</p>
+					<p id = "toasty">Here you can find information about the upcoming events for the University of Florida College of Engineering. Click an event to view the information. Be sure to be swipe your student ID at the events you attend!</p>
 					<style type="text/css">
 							#toasty{
 								float:left;
@@ -74,7 +78,7 @@
 
 					<style type = "text/css">
 	/* LIST #4 */
-#list4 { width:320px; font-family:Georgia, Times, serif; font-size:15px; }
+#list4 { font-family:Georgia, Times, serif; font-size:15px; }
 #list4 ul { list-style: none; }
 #list4 ul li { }
 #list4 ul li a { display:block; text-decoration:none; color:#000000; background-color:#FFFFFF; line-height:30px;
@@ -141,26 +145,19 @@
   });
 });
  </script>
-<ul >
-	      <li id = "showme"><a href="".leanModal();  ><strong>Event1</strong></a></li>
-      <div id = "show" class = "test">
-      <p class = "eventinfo">Saying they couldn’t bear to see their boy upset, unhappy local couple Denise and Peter Gale resolved to stay together for the sake of one of their children, 7-year-old Daniel, sources reported Monday. “It would just break Daniel’s heart if we did this to him while he’s still so young—I can’t even imagine how awful that would be for him,” said the 36-year-old mother of three, adding that she wouldn’t be able to handle the devastated look on her oldest child’s face when they sat him down and told him they were getting divorced. “At the very least, we’ll wait a while until he’s off to college and the house is a little quieter. Then maybe it’s something we can address.” Gale added that if another decade of marital strife was the price she would have to pay to give her first son a happy childhood, it was well worth it. -The Onion</p>
-  	</div>
-
-      <li id = "showme2"><a href="".leanModal();><strong>Event2</strong></a></li>
-       <div id = "show2" class = "test">
-      <p class = "eventinfo">Saying they couldn’t bear to see their boy upset, unhappy local couple Denise and Peter Gale resolved to stay together for the sake of one of their children, 7-year-old Daniel, sources reported Monday. “It would just break Daniel’s heart if we did this to him while he’s still so young—I can’t even imagine how awful that would be for him,” said the 36-year-old mother of three, adding that she wouldn’t be able to handle the devastated look on her oldest child’s face when they sat him down and told him they were getting divorced. “At the very least, we’ll wait a while until he’s off to college and the house is a little quieter. Then maybe it’s something we can address.” Gale added that if another decade of marital strife was the price she would have to pay to give her first son a happy childhood, it was well worth it. -The Onion</p>
-  	</div>
-      <li id = "showme3"><a href="".leanModal();><strong>Event3</strong></a></li>
-       <div id = "show3" class = "test">
-      <p class = "eventinfo">Saying they couldn’t bear to see their boy upset, unhappy local couple Denise and Peter Gale resolved to stay together for the sake of one of their children, 7-year-old Daniel, sources reported Monday. “It would just break Daniel’s heart if we did this to him while he’s still so young—I can’t even imagine how awful that would be for him,” said the 36-year-old mother of three, adding that she wouldn’t be able to handle the devastated look on her oldest child’s face when they sat him down and told him they were getting divorced. “At the very least, we’ll wait a while until he’s off to college and the house is a little quieter. Then maybe it’s something we can address.” Gale added that if another decade of marital strife was the price she would have to pay to give her first son a happy childhood, it was well worth it. -The Onion</p>
-  	</div>
-
-      <li id = "showme4"><a href="".leanModal();><strong>Event4</strong></a></li>
-       <div id = "show4" class = "test">
-      <p class = "eventinfo">Saying they couldn’t bear to see their boy upset, unhappy local couple Denise and Peter Gale resolved to stay together for the sake of one of their children, 7-year-old Daniel, sources reported Monday. “It would just break Daniel’s heart if we did this to him while he’s still so young—I can’t even imagine how awful that would be for him,” said the 36-year-old mother of three, adding that she wouldn’t be able to handle the devastated look on her oldest child’s face when they sat him down and told him they were getting divorced. “At the very least, we’ll wait a while until he’s off to college and the house is a little quieter. Then maybe it’s something we can address.” Gale added that if another decade of marital strife was the price she would have to pay to give her first son a happy childhood, it was well worth it. -The Onion</p>
-  	</div>
-   </ul>
+ <style type="text/css">
+	.list-group{
+		margin-left:15%;
+		width: 70%; 
+	}
+	</style>
+<section data-ng-controller="EventsController" data-ng-init="find()">
+    <div class="list-group">
+        <a data-ng-repeat="event in events" data-ng-href="#!/events/{{event._id}}" class="list-group-item">
+			<h4 class="list-group-item-heading" data-ng-bind="event.name"></h4>
+        </a>
+    </div>
+	</section>
 
 </div>
 
@@ -175,16 +172,7 @@
 		</div>
 	</section>
 	<!-- /Section: services -->
-	<section data-ng-controller="EventsController" data-ng-init="find()">
-    <div class="page-header">
-        <h1>Events</h1>
-    </div>
-    <div class="list-group">
-        <a data-ng-repeat="event in events" data-ng-href="#!/events/{{event._id}}" class="list-group-item">
-			<h4 class="list-group-item-heading" data-ng-bind="event.name"></h4>
-        </a>
-    </div>
-	</section>
+	
 <style type="text/css">
 #contact{
 	display: none;

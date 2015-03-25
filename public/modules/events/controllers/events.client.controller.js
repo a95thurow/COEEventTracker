@@ -54,6 +54,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
+
 		};
 
 		// Find a list of Events

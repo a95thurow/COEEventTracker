@@ -17,10 +17,6 @@ angular.module('events').config(['$stateProvider',
 			url: '/events/:eventId',
 			templateUrl: 'modules/events/views/view-event.client.view.html'
 		}).
-		state('admin', {
-			url: '/events/admin',
-			templateUrl: 'modules/events/views/admin.html'
-		}).
 		state('editEvent', {
 			url: '/events/:eventId/edit',
 			templateUrl: 'modules/events/views/edit-event.client.view.html'

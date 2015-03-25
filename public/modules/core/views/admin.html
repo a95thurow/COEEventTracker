@@ -1,5 +1,6 @@
 <style type="text/css">
 section{
+	background-color: none;
 	margin-top: 7%;
 	margin-left: 10%;
 }
@@ -13,47 +14,38 @@ section{
 #butt{
     height: 20%;
     width:30%;
-    background: #1919ff; /* Or whatever background color you want to use */
-    color:white;
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
     border-radius: 5px;
     border
 }
 #checkin{
     height: 20%;
     width:30%;
-    background: #1919ff; /* Or whatever background color you want to use */
-    color:white;
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
     border-radius: 5px;
     margin-top: 0%;
     margin-right: 30%;
 }
 #butt2{
-    height: 10%;
-    width:11%;
-    background: #1919ff; /* Or whatever background color you want to use */
-    color:white;
-    border-radius: 5px;
-    display: none;
-}
-#butt3{
-    height: 10%;
-    width:11%;
-    margin-top: -8%;
-    margin-left: 20%;
-    background: #1919ff; /* Or whatever background color you want to use */
-    color:white;
+    height: 20%;
+    width:30%;
+    background: orange; /* Or whatever background color you want to use */
+    color:black;
     border-radius: 5px;
     display: none;
 }
 #metrics{
     height: 20%;
     width:30%;
-    background: #1919ff; /* Or whatever background color you want to use */
-    color:white;
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
     border-radius: 5px;
     margin-top: 5%;
     margin-right: 30%;
 }
+
 #attendance{
     height: 20%;
     width:30%;
@@ -73,8 +65,38 @@ section{
 	margin-top: 0%;
 	margin-left: 30%;
 }
+#add2{
+	height: 20%;
+    width:30%;
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
+    border-radius: 5px;
+    display: none;
+}
+#add3{
+	height: 20%;
+    width:30%;
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
+    border-radius: 5px;
+    display: none;
+}
+#add4{
+		height: 20%;
+    width:30%;
+    background: lightblue; /* Or whatever background color you want to use */
+    color:black;
+    border-radius: 5px;
+    display: none;
+}
+#hiddenhomies{
+	display: none;
+}
 #submit{
-	margin-left: 20%;
+	margin-left: 35%;
+}
+.ev{
+	margin-left: 30%;
 }
 a{
 	text-decoration: none;
@@ -86,16 +108,6 @@ form{
 #buttons{
  margin-left: 15%;
 }
-#cancel{
-	margin-left: 24%;
-}
-#preview{
-	display: none;
-	margin-top: 10%;
-}
-h5{
-	margin-top: -5%;
-}
 </style>
  <script type="text/javascript">
   $(document).ready(function(){
@@ -103,11 +115,13 @@ h5{
 	 $("form").toggle("fast");
 	 $("#butt").toggle("fast");
 	 $("#butt2").toggle("fast");
-	  $("#butt3").toggle("fast");
+	  $("#add2").toggle("fast");
+	   $("#add3").toggle("fast");
+ 	$("#add4").toggle("fast");
+ 	$("#hiddenhomies").toggle("fast");
 	  $("#checkin").toggle("fast");
 	  $("#metrics").toggle("fast");
 	  $("#attendance").toggle("fast");
-	  $("#preview").toggle("fast");
   });
 });
  </script>
@@ -116,26 +130,14 @@ h5{
    $("#butt2").click(function () {
 	 $("form").toggle("fast");
 	 $("#butt").toggle("fast");
+	 $("#add2").toggle("fast");
+	   $("#add3").toggle("fast");
+ 	$("#add4").toggle("fast");
 	 $("#butt2").toggle("fast");
 	  $("#checkin").toggle("fast");
 	  	  $("#metrics").toggle("fast");
-	  	   $("#butt3").toggle("fast");
-	  	   $("#attendance").toggle("fast");
-	  $("#preview").toggle("fast");
-
-  });
-});
- </script>
- <script type="text/javascript">
-  $(document).ready(function(){
-   $("#butt3").click(function () {
-	 $("form").toggle("fast");
-	 $("#butt").toggle("fast");
-	 $("#butt2").toggle("fast");
-	  $("#checkin").toggle("fast");
-	  	  $("#metrics").toggle("fast");
-	  	   $("#butt3").toggle("fast");
-	 	  $("#preview").toggle("fast");
+	  	  $("#attendance").toggle("fast");
+	  	   	$("#hiddenhomies").toggle("fast");
 
 
   });
@@ -143,47 +145,40 @@ h5{
  </script>
 <section  data-ng-controller="HomeController">
 <div id = "buttons">	
-	<a href="/edit/create">
+	<a href="">
 <div id = "butt">
 	<br>
 	
-<p id = "add">Add an Event</p>
+<p id = "add">Event Options</p>
 
 </div>
 </a>
+<br>
+<br>
+	<div id = "hiddenhomies">
 		<br>
-		<form ng-submit = "addevent()">
-		Event Title:<br>
-		<input type="text" id = "title" ng-model ="title">
+		<a href="/#!/events/create">
+		<div id = "add2">
+			<br>
+		<p class = "ev">New Event</p>
+		</div>
+		</a>
 		<br>
-		<br>
-		Event Details:<br>
-		<textarea rows = "8" id = "details" ng-model = "Details"></textarea>
-		</form>
+		<a href="/#!/events">
+		<div id = "add3">
+			<br>
+		<p class = "ev">View Events</p>
+		</div>
+		</a>
+		
 		<a href="">
 				<br>
 		<div id = "butt2">	
 			<br>
-		<p id = "submit">Submit!</p>
+		<p id = "submit">Done!</p>
 		</div>
-		</a>
-		<a href = "">
-		<div id = "butt3">	
-			<br>
-		<p id = "cancel">Cancel</p>
-		</div>
-		</a>
-		<div id = "preview">	
-			<h5>Here is a preview of how your article will look:</h5>	
-			<br>
-			<h3>{{title}}</h3>
-			<p>{{Details}}</p>
-			<div ng-repeat = "x in posts">
-				{{x.title}} <br> {{x.Details}}
-			</div>	
-		</div>
-	
-
+	</a>
+	</div>
 <a href="/#!/checkin">
 <div id = "checkin">
 <br>
@@ -191,9 +186,10 @@ h5{
 
 </div>
 </a>
+
 <a href="/#!/metrics">
 <div id = "metrics">
-<br>u
+<br>
 <p id = "met">View Student Metrics</p>
 
 </div>

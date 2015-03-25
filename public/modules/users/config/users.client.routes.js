@@ -21,13 +21,17 @@ angular.module('users').config(['$stateProvider',
 			url: '/signup',
 			templateUrl: 'modules/users/views/authentication/signup.client.view.html'
 		}).
+		state('admin', {
+			url: '/admin',
+			templateUrl: 'modules/core/views/admin.html'
+		}).
 		state('signin', {
 			url: '/signin',
 			templateUrl: 'modules/users/views/authentication/signin.client.view.html'
 		}).
 		state('metrics', {
 			url: '/metrics',
-			templateUrl: 'modules/core/views/metrics.html'
+			templateUrl: 'modules/users/views/authentication/metrics.html'
 		}).
 		state('forgot', {
 			url: '/password/forgot',
@@ -44,6 +48,10 @@ angular.module('users').config(['$stateProvider',
 		state('reset', {
 			url: '/password/reset/:token',
 			templateUrl: 'modules/users/views/password/reset-password.client.view.html'
+		}).
+		state('attendance', {
+			url: '/studentattendance',
+			templateUrl: 'modules/users/views/authentication/studentattendance.html'
 		}).
 		state('checkin', {
 			url: '/checkin',
