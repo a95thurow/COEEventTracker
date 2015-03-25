@@ -13,7 +13,8 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				details: this.details,
 				date: this.date,
 				time: this.time,
-				pointValue: this.pointValue
+				pointValue: this.pointValue,
+				studentIDs: this.studentIDs
 			});
 
 			// Redirect after save
@@ -44,6 +45,12 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				});
 			}
 		};
+			$scope.checkin = function() { //if a card is swiped, edit down to id only
+			var id = document.getElementById("swipeufid").value;
+			if (id.length > 8){
+				document.getElementById("swipeufid").value = id.substring(4,12);
+			}
+		};
 
 		// Update existing Event
 		$scope.update = function() {
@@ -54,6 +61,13 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
+
+		};
+
+		$scope.addStudents = function(){
+			var event = $scope.event;
+
+			event.studentIDs.push({id:$scope.ids})
 		};
 
 		// Find a list of Events

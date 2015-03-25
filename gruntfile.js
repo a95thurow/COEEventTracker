@@ -8,8 +8,7 @@ module.exports = function(grunt) {
 		clientViews: ['public/modules/**/views/**/*.html'],
 		clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
 		clientCSS: ['public/modules/**/*.css'],
-		mochaTests: ['app/tests/**/*.mocha.js'],
-		protTests: ['app/tests/**/*.prot.js']
+		mochaTests: ['app/tests/**/*.js']
 	};
 
 	// Project Configuration
@@ -48,26 +47,11 @@ module.exports = function(grunt) {
 				options: {
 					livereload: true
 				}
-			},
-			mochaTests: {
-				files: watchFiles.mochaTests,
-				tasks: ['jshint'],
-				options: {
-					livereload: true
-				}
-			},
-			protTests: {
-				files: watchFiles.protTests,
-				tasks: ['jshint'],
-				options: {
-					livereload: true
-				}
 			}
 		},
 		jshint: {
 			all: {
-				//src: watchFiles.clientJS.concat(watchFiles.serverJS),
-				src: watchFiles.mochaTests.concat(watchFiles.protTests),
+				src: watchFiles.clientJS.concat(watchFiles.serverJS),
 				options: {
 					jshintrc: true
 				}
@@ -155,20 +139,11 @@ module.exports = function(grunt) {
 			unit: {
 				configFile: 'karma.conf.js'
 			}
-		},
-		protractor: {
-			options: {
-				configFile: 'protractor_conf.js',
-				keepAlive: true,
-				args: {}
-			},
-			run: {},
 		}
 	});
 
 	// Load NPM tasks
 	require('load-grunt-tasks')(grunt);
-	//grunt.loadNpmTasks('grunt-protractor-runner');
 
 	// Making grunt default to force in order not to break the project.
 	grunt.option('force', true);
@@ -183,8 +158,7 @@ module.exports = function(grunt) {
 	});
 
 	// Default task(s).
-	//grunt.registerTask('default', ['lint', 'concurrent:default']);
-	grunt.registerTask('default', ['concurrent:default']);
+	grunt.registerTask('default', ['lint', 'concurrent:default']);
 
 	// Debug task.
 	grunt.registerTask('debug', ['lint', 'concurrent:debug']);
@@ -193,19 +167,11 @@ module.exports = function(grunt) {
 	grunt.registerTask('secure', ['env:secure', 'lint', 'concurrent:default']);
 
 	// Lint task(s).
-	grunt.registerTask('lint', ['jshint']);//, 'csslint']);
+	grunt.registerTask('lint', ['jshint', 'csslint']);
 
 	// Build task(s).
 	grunt.registerTask('build', ['lint', 'loadConfig', 'ngAnnotate', 'uglify', 'cssmin']);
 
 	// Test task.
-	grunt.registerTask('test', ['t_all']);
-	
-	grunt.registerTask('t_all', [
-		't_unit',
-		'protractor:run']);
-		
-	grunt.registerTask('t_unit', [
-		'env:test',
-		'mochaTest']);
+	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
 };

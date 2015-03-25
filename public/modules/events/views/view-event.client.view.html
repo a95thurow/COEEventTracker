@@ -1,19 +1,22 @@
-<section data-ng-controller="EventsController" data-ng-init="findOne()">
+
+	<section data-ng-controller="EventsController" data-ng-init="findOne()">
 	<div class="page-header">
 		<br>
 		<br>
 		<br>
 		<h1 data-ng-bind="event.name"></h1>
+		Event Description:
 		<p data-ng-bind="event.details"></p>
 		<br>
+		Event Date:
 		<p data-ng-bind="event.date"></p>
 		<br>
+		Event Time:
 		<p data-ng-bind="event.time"></p>
 		<br>
-		<p>Point value: </p>
-		<p data-ng-bind="event.pointValue"></p>
+		Point Value:<p data-ng-bind="event.pointValue"></p>
 	</div>
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == event.user._id))">
+	<div class="pull-right" data-ng-show="(authentication.user)">
 		<a class="btn btn-primary" href="/#!/events/{{event._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>

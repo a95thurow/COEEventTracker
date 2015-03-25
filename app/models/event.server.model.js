@@ -34,7 +34,11 @@ var EventSchema = new Schema({
  		type: String,
  		default: '',
  		trim: true
-	}
+	},
+	studentIDs: [{
+		id : String
+	}]
+
 });
 
 mongoose.model('Event', EventSchema);

@@ -15,12 +15,48 @@
                             width: 100%;
                             }
                         </style>
-                        <input type="text" data-ng-model="events.name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="event.name" id="name" class="form-control" placeholder="Name" required>
                          <label class="control-label" for="details">Details</label>
                          <br>
-                        <textarea rows = "8" data-ng-model = "events.details" id = "details" placeholder="Details here!" required></textarea>
+                        <textarea rows = "8" data-ng-model = "event.details" id = "details" placeholder="Details here!" required></textarea>
                     </div>
                 </div>
+
+                <label class="control-label" for="eventdate">Event Date</label> <br>
+                              <link href="lib/jquery-ui-1.11.4.custom/jquery-ui.theme.css" rel="stylesheet" type="text/css" />     
+   
+                              <script src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+                              <script src="lib/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+
+                        <input name="dob" data-ng-model = "event.date" class="form control" id="datepicker" type="date" placeholder="mm/dd/yyyy">
+                        <script>
+                             $(function() {$( "#datepicker" ).datepicker();});
+                        </script>
+
+                <br>
+                <br>
+
+
+                <label class="control-label" for="eventtime">Event Time</label> <br>
+
+                         <input id='timepicker' type='text' data-ng-model = "event.time" name='timepicker'/>
+
+                        <link rel='stylesheet' type='text/css'href='lib/TimePicki-master/css/timepicki.css'/>
+                        <script type='text/javascript'src='lib/TimePicki-master/js/timepicki.js'></script>
+
+                        <script>
+                            $('#imepicker').timepicki(); 
+                        </script>
+
+                 <br>
+
+              <label class="control-label" for="eventtime" >Point Value</label> <br>
+                         
+                          <input data-ng-model = "event.pointValue" id = "point" type='text' name = 'pointpicker'/>
+                         
+                         <br>
+                         <br>
+                         
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-default">
                 </div>
