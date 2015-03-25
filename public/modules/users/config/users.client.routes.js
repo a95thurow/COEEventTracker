@@ -21,18 +21,19 @@ angular.module('users').config(['$stateProvider',
 			url: '/signup',
 			templateUrl: 'modules/users/views/authentication/signup.client.view.html'
 		}).
-		state('signin', {
-			url: '/signin',
-			templateUrl: 'modules/users/views/authentication/signin.client.view.html'
-		}).
 		state('admin', {
 			url: '/admin',
 			templateUrl: 'modules/core/views/admin.html'
+		}).
+		state('signin', {
+			url: '/signin',
+			templateUrl: 'modules/users/views/authentication/signin.client.view.html'
 		}).
 		state('metrics', {
 			url: '/metrics',
 			templateUrl: 'modules/core/views/metrics.html'
 		}).
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 		state('attendance', {
@@ -40,6 +41,8 @@ angular.module('users').config(['$stateProvider',
 			templateUrl: 'modules/core/views/studentattendance.html'
 		}).
 >>>>>>> origin/sprint-2
+=======
+>>>>>>> 22e8ecb8172439689806405d1fb24763fc218988
 		state('forgot', {
 			url: '/password/forgot',
 			templateUrl: 'modules/users/views/password/forgot-password.client.view.html'

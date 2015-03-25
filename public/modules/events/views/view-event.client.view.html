@@ -1,6 +1,21 @@
 <section data-ng-controller="EventsController" data-ng-init="findOne()">
 	<div class="page-header">
+<<<<<<< HEAD
 		<h1 data-ng-bind="event.name"></h1>
+=======
+		<br>
+		<br>
+		<br>
+		<h1 data-ng-bind="event.name"></h1>
+		<p data-ng-bind="event.details"></p>
+		<br>
+		<p data-ng-bind="event.date"></p>
+		<br>
+		<p data-ng-bind="event.time"></p>
+		<br>
+		<p>Point value: </p>
+		<p data-ng-bind="event.pointValue"></p>
+>>>>>>> 22e8ecb8172439689806405d1fb24763fc218988
 	</div>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == event.user._id))">
 		<a class="btn btn-primary" href="/#!/events/{{event._id}}/edit">
@@ -10,6 +25,7 @@
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
+<<<<<<< HEAD
 	<small>
 		<em class="text-muted">
 			Posted on
@@ -19,3 +35,6 @@
 		</em>
 	</small>
 </section>
+=======
+	</section>
+>>>>>>> 22e8ecb8172439689806405d1fb24763fc218988

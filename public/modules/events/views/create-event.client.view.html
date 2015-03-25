@@ -1,5 +1,18 @@
 <section data-ng-controller="EventsController">
+<<<<<<< HEAD
     <div class="page-header">
+=======
+    <style type="text/css">
+
+    
+    #details{
+    width: 100%;
+    height: 100%;
+    }
+    </style>
+    <div class="page-header">
+        <br>
+>>>>>>> 22e8ecb8172439689806405d1fb24763fc218988
         <h1>New Event</h1>
     </div>
     <div class="col-md-12">
@@ -7,10 +20,57 @@
             <fieldset>
                 <div class="form-group">
                     <label class="control-label" for="name">Name</label>
+<<<<<<< HEAD
                     <div class="controls">
                         <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
                     </div>
                 </div>
+=======
+
+                    <div class="controls">
+                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                        <br>
+                        <label class="control-label" for="details">Details</label>
+                        <textarea rows = "8" data-ng-model = "details" id = "details" placeholder=" Details here!" required></textarea>
+                    </div>
+                </div>
+
+               <label class="control-label" for="eventdate">Event Date</label> <br>
+                              <link href="lib/jquery-ui-1.11.4.custom/jquery-ui.theme.css" rel="stylesheet" type="text/css" />     
+   
+                              <script src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+                              <script src="lib/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+
+                        <input name="dob" data-ng-model = "date" class="form control" id="datepicker" type="date" placeholder="mm/dd/yyyy">
+                        <script>
+                             $(function() {$( "#datepicker" ).datepicker();});
+                        </script>
+
+                <br>
+                <br>
+
+
+                <label class="control-label" for="eventtime">Event Time</label> <br>
+
+                         <input id='timepicker' type='text' data-ng-model = "time" name='timepicker'/>
+
+                        <link rel='stylesheet' type='text/css'href='lib/TimePicki-master/css/timepicki.css'/>
+                        <script type='text/javascript'src='lib/TimePicki-master/js/timepicki.js'></script>
+
+                        <script>
+                            $('#imepicker').timepicki(); 
+                        </script>
+
+                 <br>
+
+              <label class="control-label" for="eventtime" >Point Value</label> <br>
+                         
+                          <input data-ng-model = "pointValue" id = "point" type='text' name = 'pointpicker'/>
+                         
+                         <br>
+                         <br>
+
+>>>>>>> 22e8ecb8172439689806405d1fb24763fc218988
                 <div class="form-group">
                     <input type="submit" class="btn btn-default">
                 </div>

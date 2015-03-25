@@ -9,10 +9,14 @@ body {
 	font-weight: 300;
     color: #666;
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-color: #fff;
 =======
     background-color: white;
 >>>>>>> origin/sprint-2
+=======
+    background: none;
+>>>>>>> 22e8ecb8172439689806405d1fb24763fc218988
 }
 
 html {
