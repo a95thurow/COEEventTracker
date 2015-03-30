@@ -34,7 +34,10 @@ var EventSchema = new Schema({
  		type: String,
  		default: '',
  		trim: true
-	}
+	},
+	studentIDs: [{
+		ufid : String
+	}]
 
 });
 

@@ -15,13 +15,25 @@
 		<p data-ng-bind="event.time"></p>
 		<br>
 		Point Value:<p data-ng-bind="event.pointValue"></p>
+		<div data-ng-show="authentication.user">
+		Number of Students Attended: 
+        <p>{{event.studentIDs.length}}</p>
+    	</div>
+        <br>
+        
 	</div>
 	<div class="pull-right" data-ng-show="(authentication.user)">
 		<a class="btn btn-primary" href="/#!/events/{{event._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
+		<a class="btn btn-primary" href="/#!/events/{{event._id}}/checkin">
+			<i class="glyphicon glyphicon-ok"></i>
+		</a>
 		<a class="btn btn-primary" data-ng-click="remove();">
 			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+		<a class = "btn btn-primary" href = "/#!/events/{{event._id}}/studentattendance" >
+			 <i class="glyphicon glyphicon-list"></i>
 		</a>
 	</div>
 	</section>
