@@ -52,10 +52,6 @@ angular.module('users').config(['$stateProvider',
 		state('attendance', {
 			url: '/studentattendance',
 			templateUrl: 'modules/users/views/authentication/studentattendance.html'
-		}).
-		state('checkin', {
-			url: '/checkin',
-			templateUrl: 'modules/users/views/authentication/checkin.client.view.html'
 		});
 	}
 ]);
