@@ -15,10 +15,17 @@
 		<p data-ng-bind="event.time"></p>
 		<br>
 		Point Value:<p data-ng-bind="event.pointValue"></p>
-		Students:
-        <ul data-ng-repeat="ufid in event.studentIDs">
+		<div data-ng-show="authentication.user">
+		Number of Students Attended: 
+        <p>{{event.studentIDs.length}}</p>
+        Students:
+    	</div>
+		
+        <ul data-ng-repeat="ufid in event.studentIDs" data-ng-show="authentication.user">
 			<li>{{ufid.ufid}}</li>
-        <ul>
+        </ul>
+        <br>
+        
 	</div>
 	<div class="pull-right" data-ng-show="(authentication.user)">
 		<a class="btn btn-primary" href="/#!/events/{{event._id}}/edit">
