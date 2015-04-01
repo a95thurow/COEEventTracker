@@ -31,7 +31,7 @@
 </style>
 
 
-<section data-ng-controller="EventsController" data-ng-submit="checkin(); addStudents()" data-ng-init="findOne()" nonvalidate>
+<section data-ng-controller="EventsController" data-ng-submit="checkin()" data-ng-init="findOne()" nonvalidate>
     
 
 
@@ -45,8 +45,10 @@
 
 				</div>
 
+                              <input type = "submit" value="Check In" style = "display: none" class="btn btn-default">
+
 				  <div class="form-group">
-                    <input type="submit" value="Check In" class="btn btn-default">
+                    <input type = "submit" value="Check In" ng-click= "addStudents();" class="btn btn-default">
                     <br>
                     <a href = "/#!/events/{{event._id}}"  id = "toasto">
                     	<b class="btn btn-default" id = "toasti">DONE</b>	

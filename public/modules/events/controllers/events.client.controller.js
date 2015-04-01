@@ -8,6 +8,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			var id = document.getElementById("swipeufid").value;
 			if (id.length > 8){
 				document.getElementById("swipeufid").value = id.substring(4,12);
+				$scope.swipeufid = document.getElementById("swipeufid").value;
 			}
 		};
 		// Create new Event
@@ -54,6 +55,8 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			var id = document.getElementById("swipeufid").value;
 			if (id.length > 8){
 				document.getElementById("swipeufid").value = id.substring(4,12);
+				$scope.swipeufid = document.getElementById("swipeufid").value;
+				$scope.ids = document.getElementById("swipeufid").value;
 			}
 		};
 
@@ -69,6 +72,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		};
 
 		$scope.addStudents = function(){
+
 			var event = $scope.event;
 			event.studentIDs.push({ufid: $scope.ids});
 			event.$update(function() {
