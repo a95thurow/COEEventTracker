@@ -79,10 +79,17 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				$scope.ids= '';
 		};
 
+		$scope.removeStudents = function(studentIDs){
+
+
+		};
+
 		// Find a list of Events
 		$scope.find = function() {
 			$scope.events = Events.query();
 		};
+
+		
 
 		// Find existing Event
 		$scope.findOne = function() {

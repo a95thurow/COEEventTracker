@@ -58,11 +58,11 @@
 
 
 
-  <div style="height:300px;width:250px;border:3px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-       <ul data-ng-repeat="ufid in event.studentIDs | orderBy:'id':true">
-      <li>{{ufid.ufid}}</li>
-        <ul>
-</div>
+  <div style="height:250px;width:250px;border:3px solid #ccc;font:15px/26px Georgia, Garamond, Serif;overflow:auto;">
+      <ul data-ng-repeat="ufid in event.studentIDs | limitTo: -10| orderBy:-id">
+        <li>{{ufid.ufid}}</li>
+      <ul>
+  </div>
 
         
 
