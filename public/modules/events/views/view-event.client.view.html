@@ -18,12 +18,7 @@
 		<div data-ng-show="authentication.user">
 		Number of Students Attended: 
         <p>{{event.studentIDs.length}}</p>
-        Students:
     	</div>
-		
-        <ul data-ng-repeat="ufid in event.studentIDs" data-ng-show="authentication.user">
-			<li>{{ufid.ufid}}</li>
-        </ul>
         <br>
         
 	</div>
@@ -36,6 +31,9 @@
 		</a>
 		<a class="btn btn-primary" data-ng-click="remove();">
 			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+		<a class = "btn btn-primary" href = "/#!/events/{{event._id}}/studentattendance" >
+			 <i class="glyphicon glyphicon-list"></i>
 		</a>
 	</div>
 	</section>

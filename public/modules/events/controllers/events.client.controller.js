@@ -70,7 +70,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 
 		$scope.addStudents = function(){
 			var event = $scope.event;
-
 			event.studentIDs.push({ufid: $scope.ids});
 			event.$update(function() {
 			}, function(errorResponse) {
