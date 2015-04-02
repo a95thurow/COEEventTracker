@@ -31,7 +31,7 @@ angular.module('users').config(['$stateProvider',
 		}).
 		state('metrics', {
 			url: '/metrics',
-			templateUrl: 'modules/core/views/metrics.html'
+			templateUrl: 'modules/users/views/authentication/metrics.html'
 		}).
 		state('attendance', {
 			url: '/studentattendance',
@@ -53,9 +53,9 @@ angular.module('users').config(['$stateProvider',
 			url: '/password/reset/:token',
 			templateUrl: 'modules/users/views/password/reset-password.client.view.html'
 		}).
-		state('checkin', {
-			url: '/checkin',
-			templateUrl: 'modules/users/views/authentication/checkin.client.view.html'
+		state('attendance', {
+			url: '/studentattendance',
+			templateUrl: 'modules/users/views/authentication/studentattendance.html'
 		});
 	}
 ]);

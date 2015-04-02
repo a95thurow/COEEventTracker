@@ -4,7 +4,13 @@
 angular.module('events').controller('EventsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Events',
 	function($scope, $stateParams, $location, Authentication, Events) {
 		$scope.authentication = Authentication;
-
+		$scope.checkin = function() { //if a card is swiped, edit down to id only
+			var id = document.getElementById("swipeufid").value;
+			if (id.length > 8){
+				document.getElementById("swipeufid").value = id.substring(4,12);
+				$scope.swipeufid = document.getElementById("swipeufid").value;
+			}
+		};
 		// Create new Event
 		$scope.create = function() {
 			// Create new Event object
@@ -14,7 +20,8 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				details: this.details,
 				date: this.date,
 				time: this.time,
-				pointValue: this.pointValue
+				pointValue: this.pointValue,
+				studentIDs: this.studentIDs
 			});
 
 			// Redirect after save
@@ -46,16 +53,35 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				});
 			}
 		};
+			$scope.checkin = function() { //if a card is swiped, edit down to id only
+			var id = document.getElementById("swipeufid").value;
+			if (id.length > 8){
+				document.getElementById("swipeufid").value = id.substring(4,12);
+				$scope.swipeufid = document.getElementById("swipeufid").value;
+				$scope.ids = document.getElementById("swipeufid").value;
+			}
+		};
 
 		// Update existing Event
 		$scope.update = function() {
 			var event = $scope.event;
-
 			event.$update(function() {
 				$location.path('events/' + event._id);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
+
+		};
+
+		$scope.addStudents = function(){
+
+			var event = $scope.event;
+			event.studentIDs.push({ufid: $scope.ids});
+			event.$update(function() {
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+				$scope.ids= '';
 		};
 
 		// Find a list of Events

@@ -8,9 +8,12 @@ body {
     font-family: 'Lato',sans-serif;
 	font-weight: 300;
     color: #666;
+<<<<<<< HEAD
     background-color: #fff;
     background-color: white;
     background: none;
+=======
+>>>>>>> c893058f97bb9eb792489df51d16d7ed972b63b4
     background: none;
 }
 
