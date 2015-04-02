@@ -24,6 +24,7 @@
    	height: 40%;
    	margin-top: -50%;
    	margin-left: 70%;
+
    }
    #toasti{
    	margin-top: -35%;
@@ -59,14 +60,22 @@
 
 
   <div style="height:250px;width:250px;border:3px solid #ccc;font:15px/26px Georgia, Garamond, Serif;overflow:auto;">
-      <ul data-ng-repeat="ufid in event.studentIDs | limitTo: -10| orderBy:-id">
-        <li>{{ufid.ufid}}</li>
+      <ul data-ng-repeat="ufid in event.studentIDs | limitTo: -10">
+        
+        <li >{{ufid.ufid}}<a class="btn btn-primary" data-ng-click="removeStudents($index);">
+                          <i class="glyphicon glyphicon-trash"></i>
+                          </a>
+        </li>
+        
+       
       <ul>
   </div>
 
+</section>
+
         
 
-</section>
+
 
 
         <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>

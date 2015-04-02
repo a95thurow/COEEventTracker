@@ -79,7 +79,24 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				$scope.ids= '';
 		};
 
-		$scope.removeStudents = function(studentIDs){
+		$scope.removeStudents = function(ufid){
+			var event = $scope.event;
+
+			console.log(ufid);
+			var index = event.studentIDs.indexOf(ufid);
+           
+			console.log(index);
+
+
+
+            if(ufid > -1){
+            	event.studentIDs.splice(ufid, 1);
+            }
+
+            event.$update(function() {
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
 
 
 		};
