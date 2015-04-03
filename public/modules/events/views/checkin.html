@@ -61,7 +61,7 @@
 
 
   <div style="height:250px;width:250px;border:3px solid #ccc;font:15px/26px Georgia, Garamond, Serif;overflow:auto;">
-      <ul data-ng-repeat="ufid in event.studentIDs | limitTo: -10">
+      <ul data-ng-repeat="ufid in event.studentIDs | limitTo: 5">
         
         <li >{{ufid.ufid}}<a class="btn btn-primary" data-ng-click="removeStudents($index);">
                           <i class="glyphicon glyphicon-trash"></i>

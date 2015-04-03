@@ -70,13 +70,41 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			});
 
 		};
+		$scope.shouldmargin = function(index, eventy){
+			var events = eventy;
+				var op = 0;
+				console.log(index);
+				for (var i = index; i >= 0; i--){
+					console.log('made it');
+					if(events[i].studentIDs > 5){
+						console.log('here');
+						op = i;
+						console.log((op-index)* -1);
+						return op* -1;
+					}
+				}
+				
+				
+					return index;
+		}
+		$scope.average = function(){
+			  var total = 0;
+			  var numevents = 0;
+    	for(var i = 0; i < $scope.events.length; i++){
+        	var eventi = $scope.events[i];
+        	total += (eventi.studentIDs.length);
+        	numevents += 1;
+
+    	}
+    	return Math.round(total/numevents);
+		};
 		$scope.removeStudents = function(ufid){
 			var event = $scope.event;
 
 			console.log(ufid);
 			var index = event.studentIDs.indexOf(ufid);
            
-			console.log(index);
+			console.log(ufid);
 
 
 
