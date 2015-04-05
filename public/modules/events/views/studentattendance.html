@@ -23,6 +23,27 @@ section{
    margin-left:0%;
    -webkit-appearance: none;
    }
+
+   .TFtable{
+    width:100%; 
+    border-collapse:collapse; 
+  }
+  .TFtable td{ 
+    padding:7px; border:#4e95f4 1px solid;
+  }
+  /* provide some minimal visual accomodation for IE8 and below */
+  .TFtable tr{
+    background: lightblue;
+  }
+  /*  Define the background color for all the ODD background rows  */
+  .TFtable tr:nth-child(odd){ 
+    background: lightblue;
+  }
+  /*  Define the background color for all the EVEN background rows  */
+  .TFtable tr:nth-child(even){
+    background: white;
+  }
+
    #toasto{
       float: right;
       margin-bottom: 2%;
@@ -32,22 +53,34 @@ section{
 <br>
 <br>
 
+<section data-ng-controller="EventsController" data-ng-init="findOne()" nonvalidate>
 
-<body>
-	<div class = "container" ng-controller = "EventsController" data-ng-submit="addStudents()" data-ng-init="findOne()" nonvalidate>">
-		
+<div data-ng-controller="SettingsController" data-ng-init ="getTime()">
+<table class = "TFtable">
+ <thead>
+  <tr>
+      <th>Checked In By</th>
+      <th>School</th>
+      <th>ID Number</th>
+      <th>Time</th>
+      <th>Remove</th>
+  </tr>
+ </thead>
 
-		<table class = "table">
-         <TH> UFIDS </TH>
-		</table>
-      
-         <ul data-ng-repeat="ufid in event.studentIDs" data-ng-show="authentication.user">
-         <li>{{ufid.ufid}}</li>
-         </ul>
-       <a href = "/#!/events/{{event._id}}"  id = "toasto">
-            <b class="btn btn-default" id = "toasti">DONE</b>  
-         </a>  
-	</div>
-   
+ <tbody>
+  <tr data-ng-repeat = "ufid in event.studentIDs">
+    <td>{{user.firstName}} {{user.lastName}}</td>
+    <td>UF</td>
+    <td>{{ufid.ufid}}</td>
+    <td>{{ufid.time}}</td>
+    <td><a class="btn btn-primary" data-ng-click="removeStudents($index);"><i class="glyphicon glyphicon-trash"></i></a></td>
+  </tr>
+ </tbody>
+  
+</table>
+
+</div>
+
+</section>
 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
-</body>
+

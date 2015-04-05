@@ -1,57 +1,115 @@
-<!doctype html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=1024">
-      <title>Example 01: No CSS</title>
-   </head>
 
-   <body>
-      <div id="wrapper">
-         <div class="chart">
-            <h3>Population of endangered species from 2012 to 2016</h3>
-            <table id="data-table" border="1" cellpadding="10" cellspacing="0"
-            summary="The effects of the zombie outbreak on the populations
-            of endangered species from 2012 to 2016">
-               <caption>Population in thousands</caption>
-               <thead>
-                  <tr>
-                     <td>&nbsp;</td>
-                     <th scope="col">2012</th>
-                     <th scope="col">2013</th>
-                     <th scope="col">2014</th>
-                     <th scope="col">2015</th>
-                     <th scope="col">2016</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <th scope="row">Carbon Tiger</th>
-                     <td>4080</td>
-                     <td>6080</td>
-                     <td>6240</td>
-                     <td>3520</td>
-                     <td>2240</td>
-                  </tr>
-                  <tr>
-                     <th scope="row">Blue Monkey</th>
-                     <td>5680</td>
-                     <td>6880</td>
-                     <td>6240</td>
-                     <td>5120</td>
-                     <td>2640</td>
-                  </tr>
-                  <tr>
-                     <th scope="row">Tanned Zombie</th>
-                     <td>1040</td>
-                     <td>1760</td>
-                     <td>2880</td>
-                     <td>4720</td>
-                     <td>7520</td>
-                  </tr>
-               </tbody>
-            </table>
-         </div>
-      </div>
-   </body>
-</html>
+
+<style type="text/css">
+section{
+	margin-top: 4%;
+	margin-left: 5%;
+  width:90%;
+  margin-bottom: 5%;
+	background-color: lightblue;
+}
+
+</style>
+<section  data-ng-controller="HomeController">
+<center><h1> Student Metrics </h1></center>
+</section>
+<br>
+<style>
+.styled-select select {
+   font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+   background: #333;
+   color: #ccc;
+   width: 168px;
+   padding: 5px;
+   font-size: 15px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   margin-left:0%;
+   -webkit-appearance: none;
+   }
+
+
+
+   #cssmenu {
+  background: #333;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 12em;
+}
+#cssmenu li {
+  font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+  margin-left: 0;
+  padding: 0;
+  list-style: none;
+}
+#cssmenu a {
+  background: #333;
+  border-bottom: 1px solid #393939;
+  color: #ccc;
+  display: block;
+  margin-left: 0;
+  padding: 20px 30px;
+  text-decoration: none;
+  font-weight: normal;
+}
+#cssmenu a:hover {
+  background: #2580a2 url("images/hover.gif") left center no-repeat;
+  color: #fff;
+  padding-bottom: 8px;
+}
+</style>
+
+<br>
+<br>
+
+<section data-ng-controller="EventsController" data-ng-init="find()">
+<style type="text/css">
+.chart div {
+  font: 20px sans-serif;
+
+  background-color: steelblue;
+
+height:400px;
+width:900px;
+  text-align: right;
+margin-left: 5%;
+  color: white;
+}
+#bo{
+
+}
+#too{
+  margin-top:20%;
+  border : 1px solid black;
+}
+#drunk{
+  float:center;
+  margin-left: -35%;
+}
+</style>
+<br>
+<br>
+<div id = "drunk">
+<h4>Total Event Attendance</h4>
+<p>In number of students</p>
+</div>
+<br>
+<br>
+ <div id = "bo" class="chart"  data-ng-repeat="event in events">
+  <div id = "test" style="height: {{event.studentIDs.length*3}}px; width:10%; margin-left: {{$index*11}}%; margin-bottom: 0px; float: bottom; margin-top: {{event.studentIDs.length* -3}}px;  border: 2px solid black;"><p id ="gogo" style = "margin-top: {{event.studentIDs.length* 4}}%; text-align: center;"><b>{{event.name}}: {{event.studentIDs.length}}</b></p></div>
+</div>
+<br>
+<div id = "too">
+<h3 style = "border-bottom: 1px solid grey; margin-top:1.9%; float:left">Average Event Attendance:</h3>
+<p style = "margin-top:0.8%; margin-left:20%; font-size:25px;"><b>&nbsp {{average()}} students</b></p>
+</div>
+<div id = "too">
+<h3 style = "border-bottom: 1px solid grey; margin-top:1.9%; float:left">Student with Most Attendance:</h3>
+<p style = "margin-top:0.8%; margin-left:20%; font-size:25px;"><b>&nbsp {{mode()}}</b></p>
+</div>
+</section>
+
+
