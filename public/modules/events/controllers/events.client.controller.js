@@ -103,7 +103,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 
 			console.log(ufid);
 			var index = event.studentIDs.indexOf(ufid);
-           
+           console.log(index);
 			console.log(ufid);
 
 
@@ -123,14 +123,97 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		$scope.addStudents = function(){
 
 			var event = $scope.event;
-			event.studentIDs.push({ufid: $scope.ids});
+			if($scope.inList() == true){
+				$scope.ids= '';
+				return null;
+			}
+			event.studentIDs.push({ufid: $scope.ids, time: $scope.getTime()});
 			event.$update(function() {
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
 				$scope.ids= '';
 		};
+		$scope.inList = function(){
+				var event = $scope.event;
+				console.log(event.name);
+			for(var i = 0; i < event.studentIDs.length; ++i){
+				if ($scope.ids == event.studentIDs[i].ufid){
+					console.log('here');
+					return true;
+				}
+			}
+			return false;
+		}
 
+		//Found and modified this for our site
+		$scope.mode = function(){
+		var Happenings = $scope.events;
+		var maxEl = 0;
+		var modeMap = {};
+		var maxCount = 1;
+		for(var i = 0; i < Happenings.length; ++i){
+			var array = Happenings[i].studentIDs;
+			if(i == 0){
+		    maxEl = array[0];
+			}	
+		    for(var j = 0; j < array.length; j++)
+		    {
+		    	var el = array[j];
+		    	if(modeMap[el] == null)
+		    		modeMap[el] = 1;
+		    	else
+		    		modeMap[el]++;	
+		    	if(modeMap[el] > maxCount)
+		    	{
+		    		maxEl = el;
+		    		maxCount = modeMap[el];
+		    	}
+		    }
+		    
+		
+		}
+		return maxEl.ufid;
+	};
+
+	$scope.getInfo = function(){
+		var stu = $scope.searchy;
+		var Happenings = $scope.events;
+		var points = 0;
+		for(var i = 0; i < Happenings.length; i++){
+			var array = Happenings[i].studentIDs;
+		    for(var j = 0; j < array.length; j++)
+		    {
+		    	if(stu === array[j].ufid){
+		    		if(Happenings[i].pointValue > 0){
+		    		j = array.length;
+		    		points += Happenings[i].pointValue;	
+		    		}
+		    	}
+			}
+		    
+		}
+		    
+		
+		
+		return points;
+	};
+
+		$scope.getTime = function(){
+			var currentdate = new Date(); 
+			var datetime =  currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":";
+             if(currentdate.getMinutes() < 10){
+  	           datetime = datetime + "0" + currentdate.getMinutes();
+
+                }
+                else{
+                	datetime = datetime + currentdate.getMinutes();
+        		}
+              return datetime;
+		};
 		// Find a list of Events
 		$scope.find = function() {
 			$scope.events = Events.query();

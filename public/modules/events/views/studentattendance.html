@@ -34,15 +34,13 @@ section{
 
 
 <body>
-	<div class = "container" ng-controller = "EventsController" data-ng-submit="addStudents()" data-ng-init="findOne()" nonvalidate>">
-		
-
+	<div class = "container" ng-controller = "EventsController" data-ng-submit="addStudents()" data-ng-init="findOne()" nonvalidate>
 		<table class = "table">
          <TH> UFIDS </TH>
 		</table>
-      
          <ul data-ng-repeat="ufid in event.studentIDs" data-ng-show="authentication.user">
          <li>{{ufid.ufid}}</li>
+         <p>{{ufid.time}}</p>
          </ul>
        <a href = "/#!/events/{{event._id}}"  id = "toasto">
             <b class="btn btn-default" id = "toasti">DONE</b>  
