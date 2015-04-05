@@ -3,22 +3,10 @@
   margin-top: 10%;
 }
 </style>
-  <h3 class="col-md-12 text-center">Check in below</h3>
-  <div class="col-md-offset-5 col-md-2 col-md">
+  <h3 class="text-center">Check in below</h3>
+  <div>
 <style type="text/css">
-.styled-select select {
-   background: white;
-   font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-   width: 268px;
-   padding: 5px;
-   font-size: 20px;
-   line-height: 1;
-   border: 0;
-   border-radius: 0;
-   height: 34px;
-   margin-left:0%;
-   -webkit-appearance: none;
-   }
+
 
   .TFtable{
     width:100%; 
@@ -31,6 +19,7 @@
   /* provide some minimal visual accomodation for IE8 and below */
   .TFtable tr{
     background: #b8d1f3;
+    width: 50px;
   }
   /*  Define the background color for all the ODD background rows  */
   .TFtable tr:nth-child(odd){ 
@@ -42,14 +31,22 @@
   }
 
    #toasto{
-    width: 20%;
+    width: 30%;
     height: 40%;
-    margin-top: -50%;
+    margin-top: -10%;
     margin-left: 70%;
    }
    #toasti{
-    margin-top: -35%;
-   }
+    margin-top: -5%;
+    margin-left: -17%;
+    margin-right: -40%;
+    }
+
+    #swipeufid{
+    width: 200px;
+    margin-left: 41.5%;
+    margin-top: -4%;
+    }
 </style>
 
 
@@ -60,7 +57,7 @@
     <form>
       <fieldset>
         <div class="form-group">
-          <label for="username">UFID</label>
+          
           <br>
           <br>
                <input data-ng-model = "ids" id="swipeufid" name="swipeufid" class="form-control"  placeholder="UFID">
@@ -83,7 +80,7 @@
 
     </form>
 
-   <p>Checked-In Students:</p>
+   <p><b>Checked-In Students:</b></p>
 
 <div data-ng-controller="SettingsController" data-ng-init ="getTime()" >
 <table class = "TFtable">
@@ -114,7 +111,7 @@
 
 </section>
 
-
+</div>
 
 
 
