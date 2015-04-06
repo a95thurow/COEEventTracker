@@ -2,27 +2,30 @@
 
 var assert = require('assert');
 
-var URL_domain = 'localhost:3000';
-var URL_site = 'http://' + URL_domain + '/';
+var URL = {
+	domain	: 'localhost:3000',
+	site 	: 	'http://' + 'localhost:3000' + '/',
 
-var URL_admin = URL_site + '#!/admin';
-var URL_admin_attendance = URL_site + '#!/studentattendance';
-var URL_admin_create = URL_site + '#!/admins/create';
-var URL_admin_metrics = URL_site + '#!/metrics';
-var URL_admin_list = URL_site + '#!/admins';
-var URL_admin_login = URL_site + '#!/signin';
-var URL_admin_logout = URL_site + 'auth/signout';
-var URL_admin_passReset = URL_site + '#!/password/forgot';
-var URL_admin_password = URL_site + '#!/settings/password';
-var URL_admin_settings = URL_site + '#!/settings/profile';
+	admin : 			'http://localhost:3000/' + '#!/admin',
+	admin_attendance : 	'http://localhost:3000/' + '#!/studentattendance',
+	admin_create : 		'http://localhost:3000/' + '#!/admins/create',
+	admin_metrics : 	'http://localhost:3000/' + '#!/metrics',
+	admin_list : 		'http://localhost:3000/' + '#!/admins',
+	admin_login : 		'http://localhost:3000/' + '#!/signin',
+	admin_logout : 		'http://localhost:3000/' + 'auth/signout',
+	admin_passReset : 	'http://localhost:3000/' + '#!/password/forgot',
+	admin_password : 	'http://localhost:3000/' + '#!/settings/password',
+	admin_settings : 	'http://localhost:3000/' + '#!/settings/profile',
 
-var URL_events = URL_site + '#!/events';
-var URL_events_create = URL_site + '#!/events/create';
-var URL_home = URL_site + '#!/';
-var URL_student_checkin = URL_site + '#!/checkin';
+	events : 			'http://localhost:3000/' + '#!/events',
+	events_create : 	'http://localhost:3000/' + '#!/events/create',
+	home : 				'http://localhost:3000/' + '#!/',
+	student_checkin : 	'http://localhost:3000/' + '#!/checkin'
+};
 
-var TITLE_home = 'COE Event Tracker';
-
+var TITLE = {
+	home : 'COE Event Tracker'
+};
 
 var f_homebutton = function () {
 	$('.navbar-brand').click();
@@ -44,22 +47,36 @@ describe ('Website Navigation:', function() {
 
 		describe ('Direct URL:', function() {
 
-			it ('Site Redirection', function() {
-				browser.get(URL_site);
-				expect(browser.getCurrentUrl()).toEqual(URL_home);
-				expect(browser.getTitle()).toEqual(TITLE_home);
-			})
+			beforeEach(function() {
+				browser.driver.manage().deleteAllCookies();
+				browser.refresh();
+			});
 
 			it ('Home Page', function() {
-				browser.get(URL_home);
-				expect(browser.getCurrentUrl()).toEqual(URL_home)
-				expect(browser.getTitle()).toEqual(TITLE_home);
+				browser.get(URL.home);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+				expect(browser.getTitle()).toEqual(TITLE.home);
 			});
 
 			it ('Sign In', function() {
-				browser.get(URL_signin);
-				expect(browser.getCurrentUrl()).toEqual(URL_signin);
-				expect(browser.getTitle()).toEqual(TITLE_home);
+				browser.get(URL.admin_login);
+				expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
+				expect(browser.getTitle()).toEqual(TITLE.home);
+			});
+
+			it ('Attendance', function() {
+				browser.get(URL.admin_attendance);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+			});
+
+			it ('Events', function() {
+				browser.get(URL.events);
+				expect(browser.getCurrentUrl()).toEqual(URL.events);
+			});
+
+			it ('Admin', function() {
+				browser.get(URL.admin);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
 			});
 		});
 
@@ -68,12 +85,12 @@ describe ('Website Navigation:', function() {
 			describe ('Home Page:', function() {
 
 				beforeEach(function() {
-					browser.get(URL_site);
+					browser.get(URL.home);
 				});
 
 				it ('-> Sign In', function() {
 					f_click_signin();
-					expect(browser.getCurrentUrl()).toEqual(URL_signin);
+					expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
 				});
 			});
 		});
