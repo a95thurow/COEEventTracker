@@ -27,11 +27,11 @@ var TITLE = {
 	home : 'COE Event Tracker'
 };
 
-var f_homebutton = function () {
+var f_click_home = function () {
 	$('.navbar-brand').click();
 };
 
-var f_adminbutton = function () {
+var f_click_admin = function () {
 	var buttons = element(by.css('.ng-scope')).all(by.linkText('Admin Page'));
 	buttons.get(0).click();
 };
@@ -39,7 +39,7 @@ var f_adminbutton = function () {
 var f_click_signin = function() {
 	var buttons = $$('.ng-scope').all(by.linkText('Sign In'));
 	buttons.get(0).click();
-}
+};
 
 describe ('Website Navigation:', function() {
 
@@ -48,8 +48,9 @@ describe ('Website Navigation:', function() {
 		describe ('Direct URL:', function() {
 
 			beforeEach(function() {
-				browser.driver.manage().deleteAllCookies();
-				browser.refresh();
+				browser.get(URL.admin_logout);
+				//browser.driver.manage().deleteAllCookies();
+				//browser.refresh();
 			});
 
 			it ('Home Page', function() {
@@ -63,19 +64,54 @@ describe ('Website Navigation:', function() {
 				expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
 				expect(browser.getTitle()).toEqual(TITLE.home);
 			});
-
-			it ('Attendance', function() {
-				browser.get(URL.admin_attendance);
+			
+			it ('Admin (blocked)', function() {
+				browser.get(URL.admin);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+			});
+			
+			it ('Admin List (blocked)', function() {
+				browser.get(URL.admin_list);
 				expect(browser.getCurrentUrl()).toEqual(URL.home);
 			});
 
-			it ('Events', function() {
-				browser.get(URL.events);
-				expect(browser.getCurrentUrl()).toEqual(URL.events);
+			it ('Attendance (blocked)', function() {
+				browser.get(URL.admin_attendance);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+			});
+			
+			it ('Checkin (blocked)', function() {
+				browser.get(URL.student_checkin);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
 			});
 
-			it ('Admin', function() {
-				browser.get(URL.admin);
+			it ('Events (blocked)', function() {
+				browser.get(URL.events);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+			});
+			
+			it ('Event Creation (blocked)', function() {
+				browser.get(URL.events_create);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+			});
+			
+			it ('Metrics (blocked)', function() {
+				browser.get(URL.admin_metrics);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+			});
+			
+			it ('Admin Profile (blocked)', function() {
+				browser.get(URL.admin_settings);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+			});
+			
+			it ('Admin Password (blocked)', function() {
+				browser.get(URL.admin_password);
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+			});
+			
+			it ('Admin Reset (blocked)', function() {
+				browser.get(URL.admin_passReset);
 				expect(browser.getCurrentUrl()).toEqual(URL.home);
 			});
 		});
@@ -87,10 +123,38 @@ describe ('Website Navigation:', function() {
 				beforeEach(function() {
 					browser.get(URL.home);
 				});
+				
+				it ('-> Home', function() {
+					f_click_home();
+					expect(browser.getCurrentUrl()).toEqual(URL.home);
+				});
 
 				it ('-> Sign In', function() {
 					f_click_signin();
 					expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
+				});
+			});
+			
+			describe ('Sign In Page:', function() {
+				beforeEach(function() {
+					browser.get(URL.admin_login);
+				});
+				
+				it ('-> Home', function() {
+					f_click_home();
+					expect(browser.getCurrentUrl()).toEqual(URL.home);
+				});
+				
+				it ('-> Sign In', function() {
+					f_click_signin();
+					expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
+				});
+				
+				it ('-> Forgot Password', function() {
+					//var but = $('.forgot-password');
+					var but = element(by.linkText('Admin Page'));
+					but.click();
+					expect(browser.getCurrentUrl()).toEqual(URL.admin_passReset);
 				});
 			});
 		});
