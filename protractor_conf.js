@@ -74,10 +74,9 @@ exports.config = {
 
   // Spec patterns are relative to the location of this config.
   specs: [
-    //'app/tests/**/*.prot.js'
+	'app/tests/web_event_create.prot.js',
 	'app/tests/web_main.prot.js',
-	'app/tests/web_signin.prot.js',
-	'app/tests/web_event_create.prot.js'
+	'app/tests/web_signin.prot.js'
   ],
 
   // Patterns to exclude.
