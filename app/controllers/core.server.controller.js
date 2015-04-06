@@ -10,7 +10,6 @@ exports.index = function(req, res) {
 	});
 };
 
-
 var REX_UF = /^;200(\d{8})01200[\d]*\?[\n\r]?$/;
 var REX_SF = /^%25501(\d{9}) \w*\?[\n\r]*$/;
 var REX_INVAL = /[^\d\s/\*\-\+\.]/;
@@ -37,7 +36,7 @@ exports.parseToID = function(string) {
 	if (null !== id && 'undefined' !== typeof id[1]) {
 		return id[1];
 	}
-	
+
 	// otherwise, assume we are working with an manual entry
 	// throw it out immediately, if it contains invalid characters
 	id = REX_INVAL.exec(string);

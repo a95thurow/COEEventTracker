@@ -31,10 +31,14 @@ var EventSchema = new Schema({
 		trim: true
 	},
 	pointValue: {
- 		type: String,
+ 		type: Number,
  		default: '',
  		trim: true
-	}
+	},
+	studentIDs: [{
+		ufid : String, 
+		time : String
+	}]
 
 });
 
