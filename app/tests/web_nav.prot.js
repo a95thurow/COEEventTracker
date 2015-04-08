@@ -31,131 +31,128 @@ var f_click_home = function () {
 	$('.navbar-brand').click();
 };
 
-var f_click_admin = function () {
-	var buttons = element(by.css('.ng-scope')).all(by.linkText('Admin Page'));
-	buttons.get(0).click();
-};
-
 var f_click_signin = function() {
 	var buttons = $$('.ng-scope').all(by.linkText('Sign In'));
 	buttons.get(0).click();
 };
 
-describe ('Website Navigation:', function() {
+describe ('Anonymous User Navigation:', function() {
 
-	describe ('Anonymous User:', function() {
+	describe ('Direct URL:', function() {
 
-		describe ('Direct URL:', function() {
-
-			beforeEach(function() {
-				browser.get(URL.admin_logout);
-				//browser.driver.manage().deleteAllCookies();
-				//browser.refresh();
-			});
-
-			it ('Home Page', function() {
-				browser.get(URL.home);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-				expect(browser.getTitle()).toEqual(TITLE.home);
-			});
-
-			it ('Sign In', function() {
-				browser.get(URL.admin_login);
-				expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
-				expect(browser.getTitle()).toEqual(TITLE.home);
-			});
-			
-			it ('Admin (blocked)', function() {
-				browser.get(URL.admin);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-			});
-			
-			it ('Admin List (blocked)', function() {
-				browser.get(URL.admin_list);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-			});
-
-			it ('Attendance (blocked)', function() {
-				browser.get(URL.admin_attendance);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-			});
-			
-			it ('Checkin (blocked)', function() {
-				browser.get(URL.student_checkin);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-			});
-
-			it ('Events (blocked)', function() {
-				browser.get(URL.events);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-			});
-			
-			it ('Event Creation (blocked)', function() {
-				browser.get(URL.events_create);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-			});
-			
-			it ('Metrics (blocked)', function() {
-				browser.get(URL.admin_metrics);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-			});
-			
-			it ('Admin Profile (blocked)', function() {
-				browser.get(URL.admin_settings);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-			});
-			
-			it ('Admin Password (blocked)', function() {
-				browser.get(URL.admin_password);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-			});
-			
-			it ('Admin Reset (blocked)', function() {
-				browser.get(URL.admin_passReset);
-				expect(browser.getCurrentUrl()).toEqual(URL.home);
-			});
+		beforeEach(function() {
+			browser.get(URL.admin_logout);
 		});
 
-		describe ('Link Navigation:', function () {
+		it ('Home Page', function() {
+			browser.get(URL.home);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+			expect(browser.getTitle()).toEqual(TITLE.home);
+		});
 
-			describe ('Home Page:', function() {
+		it ('Sign In', function() {
+			browser.get(URL.admin_login);
+			expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
+			expect(browser.getTitle()).toEqual(TITLE.home);
+		});
+		
+		it ('Admin (blocked)', function() {
+			browser.get(URL.admin);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
+		
+		it ('Admin List (blocked)', function() {
+			browser.get(URL.admin_list);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
+		
+		it ('Admin Create (blocked)', function() {
+			browser.get(URL.admin_create);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
 
-				beforeEach(function() {
-					browser.get(URL.home);
-				});
-				
-				it ('-> Home', function() {
-					f_click_home();
-					expect(browser.getCurrentUrl()).toEqual(URL.home);
-				});
+		it ('Attendance (blocked)', function() {
+			browser.get(URL.admin_attendance);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
+		
+		it ('Checkin (blocked)', function() {
+			browser.get(URL.student_checkin);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
 
-				it ('-> Sign In', function() {
-					f_click_signin();
-					expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
-				});
+		it ('Events (blocked)', function() {
+			browser.get(URL.events);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
+		
+		it ('Event Creation (blocked)', function() {
+			browser.get(URL.events_create);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
+		
+		it ('Metrics (blocked)', function() {
+			browser.get(URL.admin_metrics);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
+		
+		it ('Admin Profile (blocked)', function() {
+			browser.get(URL.admin_settings);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
+		
+		it ('Admin Password (blocked)', function() {
+			browser.get(URL.admin_password);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
+		
+		it ('Admin Reset (blocked)', function() {
+			browser.get(URL.admin_passReset);
+			expect(browser.getCurrentUrl()).toEqual(URL.home);
+		});
+	});
+
+	describe ('Link Navigation:', function () {
+
+		describe ('Home Page:', function() {
+
+			beforeEach(function() {
+				browser.get(URL.home);
 			});
 			
-			describe ('Sign In Page:', function() {
-				beforeEach(function() {
-					browser.get(URL.admin_login);
-				});
-				
-				it ('-> Home', function() {
-					f_click_home();
-					expect(browser.getCurrentUrl()).toEqual(URL.home);
-				});
-				
-				it ('-> Sign In', function() {
-					f_click_signin();
-					expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
-				});
-				
-				it ('-> Forgot Password', function() {
-					//var but = $('.forgot-password');
-					var but = element(by.linkText('Admin Page'));
-					but.click();
-					expect(browser.getCurrentUrl()).toEqual(URL.admin_passReset);
-				});
+			it ('-> Home', function() {
+				f_click_home();
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+			});
+			
+			it ('-X-> Admin Page', function() {
+				expect(element(by.linkText('Admin Page')).isPresent()).toEqual(false);
+			});
+
+			it ('-> Sign In', function() {
+				f_click_signin();
+				expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
+			});
+		});
+		
+		describe ('Sign In Page:', function() {
+			beforeEach(function() {
+				browser.get(URL.admin_login);
+			});
+			
+			it ('-> Home', function() {
+				f_click_home();
+				expect(browser.getCurrentUrl()).toEqual(URL.home);
+			});
+			
+			it ('-> Sign In', function() {
+				f_click_signin();
+				expect(browser.getCurrentUrl()).toEqual(URL.admin_login);
+			});
+			
+			it ('-> Forgot Password', function() {
+				element(by.linkText('Forgot password?')).click();
+				expect(browser.getCurrentUrl()).toEqual(URL.admin_passReset);
 			});
 		});
 	});
