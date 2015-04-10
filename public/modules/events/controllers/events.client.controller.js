@@ -55,8 +55,12 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			var id = document.getElementById("swipeufid").value;
 			if (id.length > 8){
 				document.getElementById("swipeufid").value = id.substring(4,12);
+				document.getElementById("swipeufid").value = document.getElementById("swipeufid").value.substring(0,4) + "-" + document.getElementById("swipeufid").value.substring(4,12);
 				$scope.swipeufid = document.getElementById("swipeufid").value;
 				$scope.ids = document.getElementById("swipeufid").value;
+				if($scope.inList() == false){
+				$scope.addStudents();
+				}
 			}
 		};
 
@@ -201,8 +205,8 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 
 		$scope.getTime = function(){
 			var currentdate = new Date(); 
-			var datetime =  currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
+			var datetime =  (currentdate.getMonth()+1)  + "/"
+                + currentdate.getDate()  + "/" 
                 + currentdate.getFullYear() + " @ "  
                 + currentdate.getHours() + ":";
              if(currentdate.getMinutes() < 10){

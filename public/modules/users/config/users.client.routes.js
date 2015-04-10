@@ -21,10 +21,6 @@ angular.module('users').config(['$stateProvider',
 			url: '/signup',
 			templateUrl: 'modules/users/views/authentication/signup.client.view.html'
 		}).
-		state('admin', {
-			url: '/admin',
-			templateUrl: 'modules/core/views/admin.html'
-		}).
 		state('signin', {
 			url: '/signin',
 			templateUrl: 'modules/users/views/authentication/signin.client.view.html'
@@ -49,9 +45,10 @@ angular.module('users').config(['$stateProvider',
 			url: '/password/reset/:token',
 			templateUrl: 'modules/users/views/password/reset-password.client.view.html'
 		}).
-		state('attendance', {
-			url: '/studentattendance',
-			templateUrl: 'modules/users/views/authentication/studentattendance.html'
+		state('admin', {
+			url: '/admin',
+			templateUrl: 'modules/users/views/authentication/admin.html'
 		});
+		
 	}
 ]);
