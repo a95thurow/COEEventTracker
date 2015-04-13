@@ -4,6 +4,7 @@
 angular.module('events').controller('EventsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Events',
 	function($scope, $stateParams, $location, Authentication, Events) {
 		$scope.authentication = Authentication;
+		var coolList = [];
 		$scope.checkin = function() { //if a card is swiped, edit down to id only
 			var id = document.getElementById("swipeufid").value;
 			if (id.length > 8){
@@ -55,8 +56,12 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			var id = document.getElementById("swipeufid").value;
 			if (id.length > 8){
 				document.getElementById("swipeufid").value = id.substring(4,12);
+				document.getElementById("swipeufid").value = document.getElementById("swipeufid").value.substring(0,4) + "-" + document.getElementById("swipeufid").value.substring(4,12);
 				$scope.swipeufid = document.getElementById("swipeufid").value;
 				$scope.ids = document.getElementById("swipeufid").value;
+				if($scope.inList() == false){
+				$scope.addStudents();
+				}
 			}
 		};
 
@@ -139,13 +144,39 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				console.log(event.name);
 			for(var i = 0; i < event.studentIDs.length; ++i){
 				if ($scope.ids == event.studentIDs[i].ufid){
-					console.log('here');
 					return true;
 				}
 			}
 			return false;
-		}
-
+		};
+		$scope.inListTwo = function(list, el){
+				var event = list;
+				console.log(event.name);
+			for(var i = 0; i < event.length; ++i){
+				if (el == event[i].ufid){
+					return i;
+				}
+			}
+			return -1;
+		};
+		$scope.listPoints = function(){
+			var events = $scope.events;
+			var pointies = [];
+			for(var i = 0; i < events.length; ++i){
+				var ev = events[i];
+				for(var j = 0; j < ev.studentIDs.length; ++j){
+					if($scope.inListTwo(pointies,ev.studentIDs[j].ufid) < 0){
+						pointies.push({ufid: ev.studentIDs[j].ufid, points: ev.pointValue});
+					}
+					else{
+						pointies[$scope.inListTwo(pointies,ev.studentIDs[j].ufid)].points += ev.pointValue;
+					}
+				}
+			}
+			pointies = pointies.sort(function(a, b) {return b.points - a.points});
+			coolList = pointies;
+			return pointies;
+		};
 		//Found and modified this for our site
 		$scope.mode = function(){
 		var Happenings = $scope.events;
@@ -201,8 +232,8 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 
 		$scope.getTime = function(){
 			var currentdate = new Date(); 
-			var datetime =  currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
+			var datetime =  (currentdate.getMonth()+1)  + "/"
+                + currentdate.getDate()  + "/" 
                 + currentdate.getFullYear() + " @ "  
                 + currentdate.getHours() + ":";
              if(currentdate.getMinutes() < 10){
