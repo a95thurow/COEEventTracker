@@ -1,3 +1,5 @@
+<div data-ng-controller="EventsController" data-ng-show="(authentication.user)">
+
 <style type="text/css">
 section{
 	background-color: none;
@@ -58,6 +60,9 @@ section{
 #met{
 	margin-left: 20%;
 }
+#signup{
+	margin-left: 10%;
+}
 #check{
 	margin-left: 13%;
 }
@@ -109,7 +114,6 @@ form{
  margin-left: 15%;
 }
 </style>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
  <script type="text/javascript">
   $(document).ready(function(){
    $("#butt").click(function () {
@@ -186,8 +190,18 @@ form{
 </div>
 </a>
 
+<a href="/#!/signup">
+<div id = "metrics">
+<br>
+<p id = "met">Create Admin or Peer Advisor</p>
+
+</div>
+</a>
+
 
 
 
 </div>
 </section>
+</div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>

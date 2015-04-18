@@ -1,3 +1,5 @@
+<div data-ng-controller="EventsController" data-ng-show="(authentication.user)">
+
 <style type="text/css">
 section{
 	margin-top: 7%;
@@ -5,7 +7,10 @@ section{
 	background-color: lightblue;
 }
 </style>
-<section  data-ng-controller="EventsController">
+<section  data-ng-controller="EventsController" data-ng-init="findOne()">
+  <a class="btn btn-primary" href="#!/events/{{event._id}}" style = "float: left;">
+      <i class="glyphicon glyphicon-arrow-left"></i>
+    </a>
 <center><h1>Student Attendance</h1></center>
 </section>
 
@@ -81,10 +86,11 @@ section{
 
 </div>
 
-<a href = "/#!/events/{{event._id}}"  id = "toasto">
+<a href = "/#!/events/{{event._id}}"  id = "toasto" style = "margin-top:3%;">
             <b class="btn btn-default" id = "toasti">DONE</b>  
          </a>  
 
 </section>
+</div>
 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
 
