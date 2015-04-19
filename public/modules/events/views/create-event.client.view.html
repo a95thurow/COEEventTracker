@@ -12,7 +12,7 @@
         <h1>New Event</h1>
     </div>
     <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+        <form class="form-horizontal" data-ng-submit="create()">
             <fieldset>
                 <div class="form-group">
                     <label class="control-label" for="name">Name</label>
@@ -31,7 +31,7 @@
                               <script src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
                               <script src="lib/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
 
-                        <input name="dob" data-ng-model = "date" class="form control" id="datepicker" type="date" placeholder="mm/dd/yyyy">
+                        <input name="dob" data-ng-model = "date" class="form control" id="datepicker" type="date" placeholder="mm/dd/yyyy" required>
                         <script>
                              $(function() {$( "#datepicker" ).datepicker();});
                         </script>
@@ -42,7 +42,7 @@
 
                 <label class="control-label" for="eventtime">Event Time</label> <br>
 
-                         <input id='timepicker' type='text' data-ng-model = "time" name='timepicker'/>
+                         <input id='timepicker' type='time' data-ng-model = "time" name='timepicker' required/>
 
                         <link rel='stylesheet' type='text/css'href='lib/TimePicki-master/css/timepicki.css'/>
                         <script type='text/javascript'src='lib/TimePicki-master/js/timepicki.js'></script>
@@ -55,7 +55,7 @@
 
               <label class="control-label" for="eventtime" >Point Value</label> <br>
                          
-                          <input data-ng-model = "pointValue" id = "point" type="number" name = 'pointpicker'/>
+                          <input data-ng-model = "pointValue" id = "point" type="number" name = 'pointpicker' required/>
                          
                          <br>
                          <br>
