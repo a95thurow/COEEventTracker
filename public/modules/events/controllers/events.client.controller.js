@@ -104,13 +104,27 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				
 					return index;
 		}
+		$scope.eventDisplay = function(){
+			var evs = [];
+			for(var i = 0; i < $scope.events.length; i++){
+        	var eventi = $scope.events[i];
+        	if(eventi.studentIDs.length != 0){
+        		evs.push($scope.events[i]);
+        	}
+
+    	}
+    		return evs;
+		}
 		$scope.average = function(){
 			  var total = 0;
 			  var numevents = 0;
     	for(var i = 0; i < $scope.events.length; i++){
         	var eventi = $scope.events[i];
+        	if(eventi.studentIDs.length != 0){
         	total += (eventi.studentIDs.length);
+
         	numevents += 1;
+        	}
 
     	}
     	return Math.round(total/numevents);
