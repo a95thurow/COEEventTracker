@@ -75,6 +75,18 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			});
 
 		};
+		$scope.timeCheck = function() {
+			/*
+				var currentdate = new Date(); 
+			var datetime =  (currentdate.getMonth()+1)  + "/"
+                + currentdate.getDate()  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":";
+             if(currentdate.getMinutes() < 10)
+			*/
+			var time = $scope.timie;
+			console.log(time);
+		}
 		$scope.shouldmargin = function(index, eventy){
 			var events = eventy;
 				var op = 0;
