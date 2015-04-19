@@ -26,16 +26,16 @@
         
 	</div>
 	<div class="pull-right" data-ng-show="(authentication.user)">
-		<a class="btn btn-primary" href="/#!/events/{{event._id}}/edit">
+		<a title="Edit event" class="btn btn-primary" href="/#!/events/{{event._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
-		<a class="btn btn-primary" href="/#!/events/{{event._id}}/checkin">
+		<a title="Check-in students to this event" class="btn btn-primary" href="/#!/events/{{event._id}}/checkin">
 			<i class="glyphicon glyphicon-ok"></i>
 		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
+		<a title="Delete event" class="btn btn-primary" data-ng-click="remove();">
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
-		<a class = "btn btn-primary" href = "/#!/events/{{event._id}}/studentattendance" >
+		<a title="View student attendance" class = "btn btn-primary" href = "/#!/events/{{event._id}}/studentattendance" >
 			 <i class="glyphicon glyphicon-list"></i>
 		</a>
 	</div>
