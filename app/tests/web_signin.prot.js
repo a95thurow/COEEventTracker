@@ -15,7 +15,6 @@ describe ('Administration Sign In:', function() {
 		browser.get(URL_signin);
 	});
 
-	it('should not redirect upon incorrect login', function() {
 	it ('No Credentials:', function() {
 		username.clear();
 		password.clear();
@@ -35,45 +34,6 @@ describe ('Administration Sign In:', function() {
 		username.sendKeys(user_invalid);
 
 		enter.perform();
-
-		expect(browser.getCurrentUrl()).toEqual(signinURL);
-	});
-
-	it('should display error message upon incorrect login', function() {
-		username.clear();
-		password.clear();
-
-		username.sendKeys('test');
-		password.sendKeys('test');
-
-		enter.perform();
-
-		expect(error.getText()).toEqual('Unknown user or invalid password');
-	});
-
-	it('should say missing credentials if a username field is left blank', function() {
-		username.clear();
-		password.clear();
-
-		password.sendKeys('test');
-
-		enter.perform();
-
-		expect(error.getText()).toEqual('Missing credentials');
-	});
-
-	it('should say missing credentials if a password field is left blank', function() {
-		username.clear();
-		password.clear();
-
-		username.sendKeys('test');
-
-		enter.perform();
-
-		expect(error.getText()).toEqual('Missing credentials');
-	});
-
-	it('should successfully sign in test user and redirect to home page', function() {
 		// No page redirect
 		expect(browser.getCurrentUrl()).toEqual(URL_signin);
 		// Proper error message

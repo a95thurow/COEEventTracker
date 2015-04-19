@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 	// Unified Watch Object
 	var watchFiles = {
 		serverViews: ['app/views/**/*.*'],
-		serverJS: ['gruntfile.js', 'server.js', 'config/**/*.js', 'app/**/*.js'],
+		serverJS: ['gruntfile.js', 'server.js', 'config/**/*.js'],//, 'app/**/*.js'],
 		clientViews: ['public/modules/**/views/**/*.html'],
 		clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
 		clientCSS: ['public/modules/**/*.css'],
@@ -66,8 +66,13 @@ module.exports = function(grunt) {
 		},
 		jshint: {
 			all: {
+<<<<<<< HEAD
 				//src: watchFiles.clientJS.concat(watchFiles.serverJS),
 				src: watchFiles.mochaTests.concat(watchFiles.protTests),
+=======
+				src: watchFiles.clientJS.concat(watchFiles.serverJS),
+				//src: watchFiles.mochaTests.concat(watchFiles.protTests),
+>>>>>>> 52916821fe36143f02e372ee19eb871674307940
 				options: {
 					jshintrc: true
 				}

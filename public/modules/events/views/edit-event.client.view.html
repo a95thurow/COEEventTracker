@@ -1,7 +1,7 @@
+<div data-ng-controller="EventsController" data-ng-show="(authentication.user)">
+
 <section data-ng-controller="EventsController" data-ng-init="findOne()">
     <div class="page-header">
-        <br>
-        <br>
         <br>
         <br>
         <h1>Edit Event</h1>
@@ -12,7 +12,6 @@
                 <div class="form-group">
                     <label class="control-label" for="name">Name</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="event.name" id="name" class="form-control" placeholder="Name" required>
                         <style type="text/css">
                         textarea{
                             width: 100%;
@@ -55,7 +54,7 @@
 
               <label class="control-label" for="eventtime" >Point Value</label> <br>
                          
-                          <input data-ng-model = "event.pointValue" id = "point" type='text' name = 'pointpicker'/>
+                          <input data-ng-model = "event.pointValue" id = "point" type="number" name = 'pointpicker'/>
                          
                          <br>
                          <br>
@@ -72,3 +71,4 @@
         </form>
     </div>
 </section>
+</div>

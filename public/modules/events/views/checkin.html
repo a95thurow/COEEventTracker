@@ -1,75 +1,124 @@
+<div data-ng-controller="EventsController" data-ng-show="(authentication.user)">
+
 <style type="text/css">
 #signinpage{
-	margin-top: 10%;
+  margin-top: 10%;
 }
 </style>
-	<h3 class="col-md-12 text-center">Check in below</h3>
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+  <h3 class="text-center">Check in below</h3>
+  <div>
 <style type="text/css">
-.styled-select select {
-   background: white;
-   font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-   width: 268px;
-   padding: 5px;
-   font-size: 20px;
-   line-height: 1;
-   border: 0;
-   border-radius: 0;
-   height: 34px;
-   margin-left:0%;
-   -webkit-appearance: none;
-   }
+
+
+  .TFtable{
+    width:100%; 
+    height: 50px;
+    border-collapse:collapse; 
+  }
+  .TFtable td{ 
+    padding:7px; border:#4e95f4 1px solid;
+  }
+  /* provide some minimal visual accomodation for IE8 and below */
+  .TFtable tr{
+    background: #b8d1f3;
+    width: 50px;
+  }
+  /*  Define the background color for all the ODD background rows  */
+  .TFtable tr:nth-child(odd){ 
+    background: lightblue;
+  }
+  /*  Define the background color for all the EVEN background rows  */
+  .TFtable tr:nth-child(even){
+    background: white;
+  }
+
    #toasto{
-   	width: 20%;
-   	height: 40%;
-   	margin-top: -50%;
-   	margin-left: 70%;
+    width: 30%;
+    height: 40%;
+    margin-top: -10%;
+    margin-left: 70%;
    }
    #toasti{
-   	margin-top: -35%;
-   }
+    margin-top: -5%;
+    margin-left: -17%;
+    margin-right: -40%;
+    }
+
+    #swipeufid{
+    width: 200px;
+    margin-left: 41.5%;
+    margin-top: -4%;
+    }
+    #hobo{
+      margin-left: 42%;
+    }
 </style>
 
 
-<section data-ng-controller="EventsController" data-ng-submit="checkin()" data-ng-init="findOne()" nonvalidate>
+<section data-ng-controller="EventsController" data-ng-submit="addStudents(); checkin()" data-ng-init="findOne()" validate>
     
 
 
-		<form>
-			<fieldset>
-				<div class="form-group">
-					<label for="username">UFID</label>
-					<br>
-					<br>
-               <input data-ng-model = "ids" id="swipeufid" name="swipeufid" class="form-control"  placeholder="UFID">
+    <form>
+      <fieldset>
+        <div class="form-group">
+          
+          <br>
+          <br>
+               <input data-ng-model = "ids" id="swipeufid" name="swipeufid" class="form-control"  placeholder="UFID" pattern="[0-9]{8}" required>
 
-				</div>
+        </div>
 
-                              <input type = "submit" value="Check In" style = "display: none" class="btn btn-default">
+                <input type = "submit" value="Check In" style = "display: none" class="btn btn-default">
 
-				  <div class="form-group">
-                    <input type = "submit" value="Check In" ng-click= "addStudents();" class="btn btn-default">
+          <div class="form-group">
+                    <input type = "submit" value="Check In" ng-click= "checkin()" id = "hobo" class="btn btn-default">
                     <br>
                     <a href = "/#!/events/{{event._id}}"  id = "toasto">
-                    	<b class="btn btn-default" id = "toasti">DONE</b>	
+                      <b class="btn btn-default" id = "toasti">DONE</b> 
                     </a>
+                    <p ng-hide = "!inList()" style = "color: red">Student is already in list</p>
+
                 </div>
-			</fieldset>
-		</form>
-	<p>Checked-In Students:</p>
+      </fieldset>
 
 
+    </form>
 
-  <div style="height:300px;width:250px;border:3px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-       <ul data-ng-repeat="ufid in event.studentIDs | orderBy:'id':true">
-      <li>{{ufid.ufid}}</li>
-        <ul>
+   <p><b>Checked-In Students:</b></p>
+
+<div data-ng-controller="SettingsController" data-ng-init ="getTime()" >
+<table class = "TFtable">
+ <thead>
+  <tr>
+      <th>Checked In By</th>
+      <th>School</th>
+      <th>ID Number</th>
+      <th>Time</th>
+      <th>Remove</th>
+  </tr>
+ </thead>
+
+ <tbody>
+  <tr data-ng-repeat = "ufid in event.studentIDs">
+    <td>{{user.firstName}} {{user.lastName}}</td>
+    <td>UF</td>
+    <td>{{ufid.ufid}}</td>
+    <td>{{ufid.time}}</td>
+    <td><a class="btn btn-primary" data-ng-click="removeStudents($index);"><i class="glyphicon glyphicon-trash"></i></a></td>
+  </tr>
+ </tbody>
+  
+</table>
+
 </div>
 
-        
 
 </section>
 
+</div>
+
+</div>
+
 
         <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
-
