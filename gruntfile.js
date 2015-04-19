@@ -66,13 +66,8 @@ module.exports = function(grunt) {
 		},
 		jshint: {
 			all: {
-<<<<<<< HEAD
-				//src: watchFiles.clientJS.concat(watchFiles.serverJS),
-				src: watchFiles.mochaTests.concat(watchFiles.protTests),
-=======
 				src: watchFiles.clientJS.concat(watchFiles.serverJS),
 				//src: watchFiles.mochaTests.concat(watchFiles.protTests),
->>>>>>> 52916821fe36143f02e372ee19eb871674307940
 				options: {
 					jshintrc: true
 				}
