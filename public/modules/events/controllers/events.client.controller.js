@@ -125,6 +125,28 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 
 		};
 
+		$scope.calendar = function(){
+           var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+            var calendar = $('#calendar').fullCalendar({
+                editable: false,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                });
+        };
+                
+
+  		$scope.dateMin = function(){
+
+  			$( "#datepicker" ).datepicker({ minDate: 0 });
+  		};
+
+
 		$scope.addStudents = function(){
 
 			var event = $scope.event;
@@ -205,6 +227,18 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		
 		}
 		return maxEl.ufid;
+	};
+
+	$scope.futureevents = function(){
+		 var event = $scope.event;
+		 var rightnow = new Date();
+		 var now = (rightnow.getMonth() + 1) + 
+		 + rightnow.getDate() + 
+		 + rightnow.getFullYear();
+		 if(((rightnow.getMonth() + 1) && rightnow.getDate() && rightnow.getFullYear()) > event.date ){
+		 	return event;
+		 }
+
 	};
 
 	$scope.getInfo = function(){
