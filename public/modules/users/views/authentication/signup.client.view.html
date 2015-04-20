@@ -8,30 +8,30 @@
 <section class="row" data-ng-controller="AuthenticationController">
 	<h3 class="col-md-12 text-center">Create new peer advisor or admin</h3>
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
+		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
 				<input type="radio" name="admin" value="admin" ng-model = "select" id = "addme">Admin
 				 <input type="radio" name="admin" value="peer" ng-model = "select" id = "useme" style = "margin-left:10%;">Peer Advisor	
 				 <br> 
 				<div class="form-group">
 					<label for="firstName">First Name</label>
-					<input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="First Name">
+					<input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="First Name" required>
 				</div>
 				<div class="form-group">
 					<label for="lastName">Last Name</label>
-					<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="credentials.lastName" placeholder="Last Name">
+					<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="credentials.lastName" placeholder="Last Name" required>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
+					<input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email" required>
 				</div>
 				<div class="form-group">
 					<label for="username">Username</label>
-					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
+					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username" required>
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
+					<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password" required>
 				</div>
 				<div class="text-center form-group">
 					<button type="submit" class="btn btn-large btn-primary">Sign up</button>&nbsp; or&nbsp;
