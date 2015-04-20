@@ -55,7 +55,7 @@
 </style>
 
 
-<section data-ng-controller="EventsController" data-ng-submit="addStudents(); checkin()" data-ng-init="findOne()" nonvalidate>
+<section data-ng-controller="EventsController" data-ng-submit="addStudents(); checkin()" data-ng-init="findOne()">
     
 
 
@@ -65,7 +65,7 @@
           
           <br>
           <br>
-            <input pattern="([0-9]{8})|([0-9]{4}\-[0-9]{4})" data-ng-model = "ids" id="swipeufid" name="swipeufid" class="form-control"  placeholder="UFID">
+            <input pattern="([0-9]{8})|([0-9]{4}\-[0-9]{4})" data-ng-model = "ids" id="swipeufid" name="swipeufid" class="form-control"  placeholder="UFID" required>
 
         </div>
 
