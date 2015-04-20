@@ -88,6 +88,15 @@ section{
   
   text-align: left;
 }
+
+.bar {
+	border: 1px solid black;
+	background-color: orange;
+	height: 100%;
+	padding:5px;
+	padding-right:0px;
+	padding-left:0px;
+}
 #too{
   border : 1px solid black;
   padding-left: 5px;
@@ -127,14 +136,16 @@ section{
     <tr>
       <th>Event</th>
       <th>Attendance</th>
-      <th>Bar</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr data-ng-repeat="event in events" >
       <td width="25%">{{event.name}}</td>
       <td>{{event.studentIDs.length}}</td>
-      <td width="100%">BLANK</td>
+      <td width="100%">
+		<div class="bar" style="width:{{percOfMax(event.studentIDs.length,max())}}%;"></div>
+	  </td>
     </tr>
   </tbody>
  </table>
