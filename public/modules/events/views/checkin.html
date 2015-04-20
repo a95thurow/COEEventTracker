@@ -55,7 +55,7 @@
 </style>
 
 
-<section data-ng-controller="EventsController" data-ng-submit="addStudents(); checkin()" data-ng-init="findOne()" validate>
+<section data-ng-controller="EventsController" data-ng-submit="checkin()" data-ng-init="findOne()" nonvalidate>
     
 
 
@@ -65,14 +65,14 @@
           
           <br>
           <br>
-               <input data-ng-model = "ids" id="swipeufid" name="swipeufid" class="form-control"  placeholder="UFID" pattern="[0-9]{8}" required>
+               <input data-ng-model = "ids" id="swipeufid" name="swipeufid" class="form-control"  placeholder="UFID">
 
         </div>
 
-                <input type = "submit" value="Check In" style = "display: none" class="btn btn-default">
+                              <input type = "submit" value="Check In" style = "display: none" class="btn btn-default">
 
           <div class="form-group">
-                    <input type = "submit" value="Check In" ng-click= "checkin()" id = "hobo" class="btn btn-default">
+                    <input type = "submit" value="Check In" ng-click= "addStudents();" id = "hobo" class="btn btn-default">
                     <br>
                     <a href = "/#!/events/{{event._id}}"  id = "toasto">
                       <b class="btn btn-default" id = "toasti">DONE</b> 
