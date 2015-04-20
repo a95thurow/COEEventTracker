@@ -178,6 +178,22 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
     	}
     	return Math.round(total/numevents);
 		};
+		
+		$scope.max = function() {
+			var max = 0;
+			for (var i = 0; i < $scope.events.length; i++) {
+				var att = $scope.events[i].studentIDs.length;
+				if (att > max) {
+					max = att;
+				}
+			}
+			return max;
+		};
+		
+		$scope.percOfMax = function(att, max) {
+			return att/max*100;
+		};
+		
 		$scope.removeStudents = function(ufid){
 			var event = $scope.event;
 
