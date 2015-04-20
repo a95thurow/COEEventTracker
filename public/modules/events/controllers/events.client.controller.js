@@ -52,13 +52,14 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			// throw it out, still, if you don't pull out 8 OR 9 digits
 			return null;
 		};
-		$scope.checkin = function() { //if a card is swiped, edit down to id only
+		// Deposed version
+		/*$scope.checkin = function() { //if a card is swiped, edit down to id only
 			var id = parseToID(document.getElementById("swipeufid").value);
 			if (id.length != 0){
 				document.getElementById("swipeufid").value = id;
 				$scope.swipeufid = document.getElementById("swipeufid").value;
 			}
-		};
+		};*/
 		// Create new Event
 		$scope.create = function() {
 			// Create new Event object
@@ -99,19 +100,17 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				});
 			}
 		};
-		// Deposed version
-			/*$scope.checkin = function() { //if a card is swiped, edit down to id only
-			var id = document.getElementById("swipeufid").value;
-			if (id.length > 8){
-				document.getElementById("swipeufid").value = id.substring(4,12);
-				document.getElementById("swipeufid").value = document.getElementById("swipeufid").value.substring(0,4) + "-" + document.getElementById("swipeufid").value.substring(4,12);
+			$scope.checkin = function() { //if a card is swiped, edit down to id only
+			var id = $scope.parseToID(document.getElementById("swipeufid").value);
+			if (id.length != 0){
+				document.getElementById("swipeufid").value = id;
 				$scope.swipeufid = document.getElementById("swipeufid").value;
 				$scope.ids = document.getElementById("swipeufid").value;
 				if($scope.inList() == false){
 				$scope.addStudents();
 				}
 			}
-		};*/
+		};
 
 		// Update existing Event
 		$scope.update = function() {
