@@ -86,7 +86,15 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			*/
 			var time = $scope.timie;
 			console.log(time);
-		}
+		};
+		$scope.isAdmin = function(){
+			if ($scope.authentication.user.roles){
+				if($scope.authentication.user.roles.indexOf("admin") > -1){
+					return true;
+				}
+			}
+			return false;
+		};
 		$scope.shouldmargin = function(index, eventy){
 			var events = eventy;
 				var op = 0;
@@ -152,13 +160,12 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		};
 
 		$scope.addStudents = function(){
-
 			var event = $scope.event;
 			if($scope.inList() == true){
 				$scope.ids= '';
 				return null;
 			}
-			event.studentIDs.push({ufid: $scope.ids, time: $scope.getTime()});
+			event.studentIDs.push({ufid: $scope.ids, time: $scope.getTime(), peerFirst: $scope.authentication.user.firstName, peerLast: $scope.authentication.user.lastName});
 			event.$update(function() {
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
@@ -167,7 +174,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		};
 		$scope.inList = function(){
 				var event = $scope.event;
-				console.log(event.name);
 			for(var i = 0; i < event.studentIDs.length; ++i){
 				if ($scope.ids == event.studentIDs[i].ufid){
 					return true;
@@ -177,7 +183,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		};
 		$scope.inListTwo = function(list, el){
 				var event = list;
-				console.log(event.name);
 			for(var i = 0; i < event.length; ++i){
 				if (el == event[i].ufid){
 					return i;

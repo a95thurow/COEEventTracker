@@ -1,4 +1,4 @@
-<div data-ng-controller="EventsController" data-ng-show="(authentication.user)">
+<div data-ng-controller="EventsController" data-ng-show="isAdmin()">
 
 <style type="text/css">
 section{
@@ -186,7 +186,13 @@ form{
 
 </div>
 </a>
+<a href="/#!/signup">
+<div id = "attendance">
+<br>
+<p id = "met">Create New User</p>
 
+</div>
+</a>
 
 
 

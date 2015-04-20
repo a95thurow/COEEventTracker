@@ -1,4 +1,4 @@
-<div data-ng-controller="EventsController" data-ng-show="(authentication.user)">
+<div data-ng-controller="EventsController" data-ng-show="isAdmin()">
 
 <style type="text/css">
 section{
@@ -74,7 +74,7 @@ section{
 
  <tbody>
   <tr data-ng-repeat = "ufid in event.studentIDs">
-    <td>{{user.firstName}} {{user.lastName}}</td>
+    <td>{{ufid.peerFirst}} {{ufid.peerLast}}</td>
     <td>UF</td>
     <td>{{ufid.ufid}}</td>
     <td>{{ufid.time}}</td>
