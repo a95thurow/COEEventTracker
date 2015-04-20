@@ -1,17 +1,20 @@
-
+<div data-ng-controller="EventsController" data-ng-show="(authentication.user)">
 
 <style type="text/css">
 section{
-	margin-top: 4%;
-	margin-left: 5%;
+  margin-top: 4%;
+  margin-left: 5%;
   width:90%;
   margin-bottom: 5%;
-	background-color: lightblue;
+  background-color: lightblue;
 }
-
 </style>
+   <a class="btn btn-primary" href="#!/admin" style = "float: left;">
+      <i class="glyphicon glyphicon-arrow-left"></i>
+    </a>
 <section  data-ng-controller="HomeController">
-<center><h1> Student Metrics </h1></center>
+
+<center><h1 style = "margin-bottom: 20px;"> Student Metrics </h1></center>
 </section>
 <br>
 <style>
@@ -29,9 +32,6 @@ section{
    margin-left:0%;
    -webkit-appearance: none;
    }
-
-
-
    #cssmenu {
   background: #333;
   list-style: none;
@@ -62,32 +62,39 @@ section{
 }
 </style>
 
-<br>
-<br>
-
 <section data-ng-controller="EventsController" data-ng-init="find()">
 <style type="text/css">
-.chart div {
-  font: 20px sans-serif;
-
+.chart {
+  width: 100%;
   background-color: steelblue;
-
-height:400px;
-width:900px;
-  text-align: right;
-margin-left: 10%;
+  border: 1px solid black;
+  margin-bottom:5px;
+  font: 20px sans-serif;
+  text-align: left;
   color: white;
 }
-#bo{
-  margin-left: 25%;
+.chart th {
+  border: 1px solid black;
+  padding:5px;
+  text-align:center
+}
+.chart td {
+  padding-left:5px;
+  border: 1px dashed black;
+}
+.chart_name div {
+  font: 20px sans-serif;
+  background-color: steelblue;
+  
+  text-align: left;
 }
 #too{
-  margin-top:20%;
   border : 1px solid black;
+  padding-left: 5px;
 }
 #drunk{
   float:center;
-  margin-left: -20%;
+  margin-left: 20%;
 }
   .TFtable{
     width:100%; 
@@ -97,7 +104,7 @@ margin-left: 10%;
   .TFtable td{ 
     padding:7px; border:#4e95f4 1px solid;
   }
-  /* provide some minimal visual accomodation for IE8 and below */
+  /* provide some minimal visual accommodation for IE8 and below */
   .TFtable tr{
     background: #b8d1f3;
     width: 10px;
@@ -111,32 +118,38 @@ margin-left: 10%;
     background: white;
   }
 </style>
-<br>
-<br>
 <div id = "drunk">
 <h4>Total Event Attendance</h4>
 <p>In number of students</p>
 </div>
-<br>
-<br>
- <div id = "bo" class="chart"  data-ng-repeat="event in events">
-  <div id = "test" style="height: {{event.studentIDs.length*3}}px; width:10%; margin-left: {{$index*12}}%; margin-bottom: 0px; float: bottom; margin-top: {{event.studentIDs.length* -3}}px;  border: 2px solid black;"><p id ="gogo" style = "margin-top: {{event.studentIDs.length* 4}}%; text-align: center;"><b>{{event.name}}: {{event.studentIDs.length}}</b></p></div>
-</div>
-<br>
+<table class="chart">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Attendance</th>
+      <th>Bar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-ng-repeat="event in events" >
+      <td width="25%">{{event.name}}</td>
+      <td>{{event.studentIDs.length}}</td>
+      <td width="100%">BLANK</td>
+    </tr>
+  </tbody>
+ </table>
 <div id = "too">
 <h3 style = "border-bottom: 1px solid grey; margin-top:1.9%; float:left">Average Event Attendance:</h3>
 <p style = "margin-top:0.8%; margin-left:20%; font-size:25px;"><b>&nbsp {{average()}} students</b></p>
 </div>
-<br>
-<br>
-<br>
-<div style = "height:200px; width:100%; overflow:auto; border: 1px solid black; padding:5px;">
+<div style = "height:100%; width:100%; overflow:auto; border: 1px solid black; padding:5px;">
   <h3 style = "border-bottom: 1px solid grey;">Student Points List</h3>
   <table class = "TFtable">
  <thead>
   <tr>
       <th>Student</th>
       <th>Points</th>
+    
   </tr>
  </thead>
 
@@ -152,4 +165,6 @@ margin-left: 10%;
 </div>
 </section>
 
+
+</div>
 

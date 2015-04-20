@@ -10,7 +10,6 @@
 			#toasy{
 				
 				color:grey;
-				margin-top: 1.2%;
 				margin-left: 50%;
 				font-size:15px;
 			}
@@ -21,16 +20,18 @@
 			}
 		</style>
 		<br>
-        <a href="/#!/admin" id = "toasy" data-ng-if="menu.shouldRender(authentication.user);" class = "navbar-brand">Admin Page</a>
-	<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
+		<div data-ng-controller = "EventsController">
+        <a href="/#!/admin" id = "toasy" data-ng-if = "isAdmin()" class = "navbar-brand" style = "margin-top:1.2%;">Admin Page</a>
+    	</div>
+	<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation" >
 		
-		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
+		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user" style = "margin-top:0;">
 			<li class="divider-vertical"></li>
 			<li ui-route="/signin" ng-class="{active: $uiRoute}">
 				<a href="/#!/signin">Sign In</a>
 			</li>
 		</ul>
-		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
+		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user" >
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
@@ -38,9 +39,6 @@
 				<ul class="dropdown-menu">
 					<li>
 						<a href="/#!/settings/profile">Edit Profile</a>
-					</li>
-					<li>
-						<a href="/#!/settings/accounts">Manage Social Accounts</a>
 					</li>
 					<li data-ng-show="authentication.user.provider === 'local'">
 						<a href="/#!/settings/password">Change Password</a>

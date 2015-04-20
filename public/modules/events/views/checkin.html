@@ -1,3 +1,5 @@
+<div data-ng-controller="EventsController" data-ng-show="(authentication.user)">
+
 <style type="text/css">
 #signinpage{
   margin-top: 10%;
@@ -99,11 +101,12 @@
 
  <tbody>
   <tr data-ng-repeat = "ufid in event.studentIDs">
-    <td>{{user.firstName}} {{user.lastName}}</td>
+    <td>{{ufid.peerFirst}} {{ufid.peerLast}}</td>
     <td>UF</td>
     <td>{{ufid.ufid}}</td>
     <td>{{ufid.time}}</td>
-    <td><a class="btn btn-primary" data-ng-click="removeStudents($index);"><i class="glyphicon glyphicon-trash"></i></a></td>
+
+    <td><a class="btn btn-primary" ng-show = "(ufid.peerFirst === user.firstName && ufid.peerLast === user.lastName) || isAdmin()"data-ng-click="removeStudents($index);"><i class="glyphicon glyphicon-trash"></i></a></td>
   </tr>
  </tbody>
   
@@ -116,7 +119,7 @@
 
 </div>
 
-
+</div>
 
 
         <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>

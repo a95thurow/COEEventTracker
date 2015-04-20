@@ -37,7 +37,9 @@ var EventSchema = new Schema({
 	},
 	studentIDs: [{
 		ufid : String, 
-		time : String
+		time : String,
+		peerFirst: String,
+		peerLast: String
 	}]
 
 });

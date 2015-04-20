@@ -1,3 +1,5 @@
+<div data-ng-controller="EventsController" data-ng-show="isAdmin()">
+
 <style type="text/css">
 section{
 	margin-top: 7%;
@@ -5,7 +7,10 @@ section{
 	background-color: lightblue;
 }
 </style>
-<section  data-ng-controller="EventsController">
+<section  data-ng-controller="EventsController" data-ng-init="findOne()">
+  <a class="btn btn-primary" href="#!/events/{{event._id}}" style = "float: left;">
+      <i class="glyphicon glyphicon-arrow-left"></i>
+    </a>
 <center><h1>Student Attendance</h1></center>
 </section>
 
@@ -45,15 +50,9 @@ section{
   }
 
    #toasto{
-    width: 30%;
-    height: 40%;
-    margin-top: 1%;
-    margin-bottom: 5%;
-    margin-right: -24%;
-    float:right;
+      float: right;
+      margin-bottom: 2%;
    }
-   #toasti{
-    }
 </style>
 
 <br>
@@ -75,7 +74,7 @@ section{
 
  <tbody>
   <tr data-ng-repeat = "ufid in event.studentIDs">
-    <td>{{user.firstName}} {{user.lastName}}</td>
+    <td>{{ufid.peerFirst}} {{ufid.peerLast}}</td>
     <td>UF</td>
     <td>{{ufid.ufid}}</td>
     <td>{{ufid.time}}</td>
@@ -84,14 +83,14 @@ section{
  </tbody>
   
 </table>
-   <a href = "/#!/events/{{event._id}}"  id = "toasto" style = "float: bottom;">
-        <b class="btn btn-default" id = "toasti">DONE</b> 
-    </a>
 
 </div>
-<a href = "/#!/events/{{event._id}}"  id = "toasto">
+
+<a href = "/#!/events/{{event._id}}"  id = "toasto" style = "margin-top:3%;">
             <b class="btn btn-default" id = "toasti">DONE</b>  
          </a>  
+
 </section>
+</div>
 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
 
