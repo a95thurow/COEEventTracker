@@ -208,7 +208,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				$scope.ids= '';
 				return null;
 			}
-			if($scope.ids.length > 9){
+			if($scope.ids.length > 9 || $scope.ids.length < 9){
 				return null;
 			}
 			event.studentIDs.push({ufid: $scope.ids, time: $scope.getTime(), peerFirst: $scope.authentication.user.firstName, peerLast: $scope.authentication.user.lastName});
