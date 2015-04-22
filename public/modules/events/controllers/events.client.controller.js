@@ -5,13 +5,15 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 	function($scope, $stateParams, $location, Authentication, Events) {
 		$scope.authentication = Authentication;
 		var coolList = [];
-		$scope.checkin = function() { //if a card is swiped, edit down to id only
-			var id = document.getElementById("swipeufid").value;
-			if (id.length > 8){
-				document.getElementById("swipeufid").value = id.substring(4,12);
+	
+		// Deposed version
+		/*$scope.checkin = function() { //if a card is swiped, edit down to id only
+			var id = parseToID(document.getElementById("swipeufid").value);
+			if (id.length != 0){
+				document.getElementById("swipeufid").value = id;
 				$scope.swipeufid = document.getElementById("swipeufid").value;
 			}
-		};
+		};*/
 		// Create new Event
 		$scope.create = function() {
 			// Create new Event object
@@ -52,7 +54,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				});
 			}
 		};
-			$scope.checkin = function() { //if a card is swiped, edit down to id only
+		$scope.checkin = function() { //if a card is swiped, edit down to id only
 			var id = document.getElementById("swipeufid").value;
 			if (id.length > 8){
 				document.getElementById("swipeufid").value = id.substring(4,12);
@@ -75,6 +77,37 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			});
 
 		};
+		$scope.timeCheck = function() {
+			/*
+				var currentdate = new Date(); 
+			var datetime =  (currentdate.getMonth()+1)  + "/"
+                + currentdate.getDate()  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":";
+             if(currentdate.getMinutes() < 10)
+			*/
+			var time = $scope.timie;
+			console.log(time);
+		};
+		$scope.isAdmin = function(){
+			if ($scope.authentication.user.roles){
+				if($scope.authentication.user.roles.indexOf("admin") > -1){
+					return true;
+				}
+			}	$scope.checkin = function() { //if a card is swiped, edit down to id only
+			var id = document.getElementById("swipeufid").value;
+			if (id.length > 8){
+				document.getElementById("swipeufid").value = id.substring(4,12);
+				document.getElementById("swipeufid").value = document.getElementById("swipeufid").value.substring(0,4) + "-" + document.getElementById("swipeufid").value.substring(4,12);
+				$scope.swipeufid = document.getElementById("swipeufid").value;
+				$scope.ids = document.getElementById("swipeufid").value;
+				if($scope.inList() == false){
+				$scope.addStudents();
+				}
+			}
+		};
+			return false;
+		};
 		$scope.shouldmargin = function(index, eventy){
 			var events = eventy;
 				var op = 0;
@@ -92,17 +125,71 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				
 					return index;
 		}
+		$scope.eventDisplay = function(){
+			var evs = [];
+			for(var i = 0; i < $scope.events.length; i++){
+        	var eventi = $scope.events[i];
+        	if(eventi.studentIDs.length != 0){
+        		evs.push($scope.events[i]);
+        	}
+
+    	}
+    		return evs;
+		};
+		
+  		
+	$scope.futureevents = function(){
+		 var array = new Array();
+		 var events = $scope.events;
+		 var rightnow = new Date();
+		 var number = events.length;
+		 for(var i = 0; i < number; ++i){
+		 	var a = Date.parse(events[i].date);
+		 	console.log(events[i].date);
+		 	
+		 	var b = Date.parse(rightnow);
+		 	console.log(b);
+		 	
+		 	if(a >= b){
+		 		array.push(events[i]);
+		 		
+		 	}
+		    
+		 }
+		 console.log(array);
+		 return array;
+
+	};
 		$scope.average = function(){
 			  var total = 0;
 			  var numevents = 0;
     	for(var i = 0; i < $scope.events.length; i++){
         	var eventi = $scope.events[i];
+        	if(eventi.studentIDs.length != 0){
         	total += (eventi.studentIDs.length);
+
         	numevents += 1;
+        	}
 
     	}
     	return Math.round(total/numevents);
 		};
+		
+		$scope.max = function() {
+			var max = 0;
+			for (var i = 0; i < $scope.events.length; i++) {
+				var att = $scope.events[i].studentIDs.length;
+				if (att > max) {
+					max = att;
+				}
+			}
+			return max;
+		};
+		
+		$scope.percOfMax = function(att, max) {
+			return att/max*100;
+		};
+		
 		$scope.removeStudents = function(ufid){
 			var event = $scope.event;
 
@@ -125,36 +212,13 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 
 		};
 
-		$scope.calendar = function(){
-           var date = new Date();
-            var d = date.getDate();
-            var m = date.getMonth();
-            var y = date.getFullYear();
-            var calendar = $('#calendar').fullCalendar({
-                editable: false,
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
-                },
-                });
-        };
-                
-
-  		$scope.dateMin = function(){
-
-  			$( "#datepicker" ).datepicker({ minDate: 0 });
-  		};
-
-
 		$scope.addStudents = function(){
-
 			var event = $scope.event;
 			if($scope.inList() == true){
 				$scope.ids= '';
 				return null;
 			}
-			event.studentIDs.push({ufid: $scope.ids, time: $scope.getTime()});
+			event.studentIDs.push({ufid: $scope.ids, time: $scope.getTime(), peerFirst: $scope.authentication.user.firstName, peerLast: $scope.authentication.user.lastName});
 			event.$update(function() {
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
@@ -163,7 +227,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		};
 		$scope.inList = function(){
 				var event = $scope.event;
-				console.log(event.name);
 			for(var i = 0; i < event.studentIDs.length; ++i){
 				if ($scope.ids == event.studentIDs[i].ufid){
 					return true;
@@ -173,7 +236,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		};
 		$scope.inListTwo = function(list, el){
 				var event = list;
-				console.log(event.name);
 			for(var i = 0; i < event.length; ++i){
 				if (el == event[i].ufid){
 					return i;
@@ -227,27 +289,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		
 		}
 		return maxEl.ufid;
-	};
-
-	$scope.futureevents = function(){
-		 var array = new Array();
-		 var events = $scope.events;
-		 var rightnow = new Date();
-		 var number = events.length;
-		 for(var i = 0; i < number; ++i){
-		 	var a = Date.parse(events[i].date);
-		 	
-		 	var b = Date.parse(rightnow);
-		 	
-		 	if(a >= b){
-		 		array.push(events[i]);
-		 		
-		 	}
-		    
-		 }
-		 console.log(array);
-		 return array;
-
 	};
 
 	$scope.getInfo = function(){

@@ -1,11 +1,20 @@
 
-<script>
-$('#datepicker').datepicker({minDate: 0});
-</script>
 
-<div data-ng-show="(authentication.user)">
+<head>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="/lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({minDate: 0});
+  });
+  </script>
+</head>
+
+<div data-ng-controller="EventsController" data-ng-show="isAdmin()">
 
 <section data-ng-controller="EventsController">
+    
     <style type="text/css">
 
     
@@ -36,7 +45,7 @@ $('#datepicker').datepicker({minDate: 0});
               
           <label class="control-label" for="eventdate">Event Date</label> <br>
                     
-                        <input data-ng-model = "date" id="datepicker" data-ng-init = "dateMin()" input type="date" placeholder="mm/dd/yyyy" required>
+                        <input id = "datepicker" input type="text"  placeholder="mm/dd/yyyy" required>
                  
                 <br>
                 <br>
@@ -69,9 +78,9 @@ $('#datepicker').datepicker({minDate: 0});
                     </a>
 
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
             </fieldset>
         </form>
     </div>

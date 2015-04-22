@@ -1,4 +1,15 @@
-<div data-ng-controller="EventsController" data-ng-show="(authentication.user)">
+<head>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="/lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({minDate: 0});
+  });
+  </script>
+</head>
+
+<div data-ng-controller="EventsController" data-ng-show="isAdmin()">
 
 <section data-ng-controller="EventsController" data-ng-init="findOne()">
     <div class="page-header">
@@ -25,23 +36,15 @@
                 </div>
 
                 <label class="control-label" for="eventdate">Event Date</label> <br>
-                              <link href="lib/jquery-ui-1.11.4.custom/jquery-ui.theme.css" rel="stylesheet" type="text/css" />     
-   
-                              <script src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
-                              <script src="lib/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
-
-                        <input name="dob" data-ng-model = "event.date" class="form control" id="datepicker" type="date" placeholder="mm/dd/yyyy">
-                        <script>
-                             $(function() {$( "#datepicker" ).datepicker();});
-                        </script>
-
+                    
+                        <input id = "datepicker" input type="text"  placeholder="mm/dd/yyyy" required>
                 <br>
                 <br>
 
 
                 <label class="control-label" for="eventtime">Event Time</label> <br>
 
-                         <input id='timepicker' type='text' data-ng-model = "event.time" name='timepicker'/>
+                         <input id='time' type='time' data-ng-model = "time" name='timepicker'/ required>
 
                         <link rel='stylesheet' type='text/css'href='lib/TimePicki-master/css/timepicki.css'/>
                         <script type='text/javascript'src='lib/TimePicki-master/js/timepicki.js'></script>

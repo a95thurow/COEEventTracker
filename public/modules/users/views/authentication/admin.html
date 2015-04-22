@@ -1,4 +1,4 @@
-<div data-ng-controller="EventsController" data-ng-show="(authentication.user)">
+<div data-ng-controller="EventsController" data-ng-show="isAdmin()">
 
 <style type="text/css">
 section{
@@ -59,9 +59,6 @@ section{
 }
 #met{
 	margin-left: 20%;
-}
-#signup{
-	margin-left: 10%;
 }
 #check{
 	margin-left: 13%;
@@ -189,15 +186,13 @@ form{
 
 </div>
 </a>
-
 <a href="/#!/signup">
-<div id = "metrics">
+<div id = "attendance">
 <br>
-<p id = "met">Create Admin or Peer Advisor</p>
+<p id = "met">Create New User</p>
 
 </div>
 </a>
-
 
 
 

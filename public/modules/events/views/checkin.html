@@ -55,7 +55,7 @@
 </style>
 
 
-<section data-ng-controller="EventsController" data-ng-submit="checkin()" data-ng-init="findOne()" nonvalidate>
+<section data-ng-controller="EventsController" data-ng-init="findOne()">
     
 
 
@@ -65,21 +65,21 @@
           
           <br>
           <br>
-               <input data-ng-model = "ids" id="swipeufid" name="swipeufid" class="form-control"  placeholder="UFID">
+            <input data-ng-model = "ids" id="swipeufid" name="swipeufid" class="form-control"  placeholder="UFID" required>
 
         </div>
 
-                              <input type = "submit" value="Check In" style = "display: none" class="btn btn-default">
+        <input type = "submit" value="Check In" style = "display: none" class="btn btn-default">
 
-          <div class="form-group">
-                    <input type = "submit" value="Check In" ng-click= "addStudents();" id = "hobo" class="btn btn-default">
-                    <br>
-                    <a href = "/#!/events/{{event._id}}"  id = "toasto">
-                      <b class="btn btn-default" id = "toasti">DONE</b> 
-                    </a>
-                    <p ng-hide = "!inList()" style = "color: red">Student is already in list</p>
+        <div class="form-group">
+           <input type = "submit" value="Check In" ng-click= "checkin()" id = "hobo" class="btn btn-default">
+              <br>
+              <a href = "/#!/events/{{event._id}}"  id = "toasto">
+                <b class="btn btn-default" id = "toasti">DONE</b> 
+              </a>
+                <p ng-hide = "!inList()" style = "color: red">Student is already in list</p>
 
-                </div>
+        </div>
       </fieldset>
 
 
@@ -101,11 +101,12 @@
 
  <tbody>
   <tr data-ng-repeat = "ufid in event.studentIDs">
-    <td>{{user.firstName}} {{user.lastName}}</td>
+    <td>{{ufid.peerFirst}} {{ufid.peerLast}}</td>
     <td>UF</td>
     <td>{{ufid.ufid}}</td>
     <td>{{ufid.time}}</td>
-    <td><a class="btn btn-primary" data-ng-click="removeStudents($index);"><i class="glyphicon glyphicon-trash"></i></a></td>
+
+    <td><a class="btn btn-primary" ng-show = "(ufid.peerFirst === user.firstName && ufid.peerLast === user.lastName) || isAdmin()"data-ng-click="removeStudents($index);"><i class="glyphicon glyphicon-trash"></i></a></td>
   </tr>
  </tbody>
   
