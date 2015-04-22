@@ -17,9 +17,11 @@ describe ('Administrator Sign In:', function() {
 		browser.get(URL_signin);
 	});
 
-	it ('No Credentials:', function() {
+	it ('Valid Only:', function() {
 		username.clear();
 		password.clear();
+
+		username.sendKeys(user_valid);
 
 		enter.perform();
 
@@ -29,25 +31,11 @@ describe ('Administrator Sign In:', function() {
 		expect(error.getText()).toEqual('Missing credentials');
 	});
 
-	it ('Invalid Username Only:', function() {
+	it ('Valid Password Only:', function() {
 		username.clear();
 		password.clear();
 
-		username.sendKeys(user_invalid);
-
-		enter.perform();
-
-		// No page redirect
-		expect(browser.getCurrentUrl()).toEqual(URL_signin);
-		// Proper error message
-		expect(error.getText()).toEqual('Missing credentials');
-	});
-
-	it ('Invalid Password Only:', function() {
-		username.clear();
-		password.clear();
-
-		password.sendKeys(pass_invalid);
+		password.sendKeys(pass_valid);
 
 		enter.perform();
 
