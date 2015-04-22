@@ -92,7 +92,10 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				if($scope.authentication.user.roles.indexOf("admin") > -1){
 					return true;
 				}
+				                $location.path('/');
+
 			}	
+
 				return false;
 		};
 		$scope.shouldmargin = function(index, eventy){
@@ -204,6 +207,9 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			$scope.checkin();
 			if($scope.inList() == true && $scope.correctForm() == true){
 				$scope.ids= '';
+				return null;
+			}
+			if(scope.ids.length < 9){
 				return null;
 			}
 			event.studentIDs.push({ufid: $scope.ids, time: $scope.getTime(), peerFirst: $scope.authentication.user.firstName, peerLast: $scope.authentication.user.lastName});
