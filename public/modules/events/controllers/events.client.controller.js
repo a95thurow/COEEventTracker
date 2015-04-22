@@ -46,8 +46,8 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		};
 			$scope.checkin = function() { //if a card is swiped, edit down to id only
 			var id = document.getElementById("swipeufid").value;
-			if (id.length > 9){
-				if(id.length < 28 && id.length > 10){
+			if (id.length > 22){
+				if(id.length < 28){
 					console.log(id.length);
 					document.getElementById("swipeufid").value = id.substring(6,15);
 
@@ -92,7 +92,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				if($scope.authentication.user.roles.indexOf("admin") > -1){
 					return true;
 				}
-				                $location.path('/');
 
 			}	
 
@@ -205,11 +204,11 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		$scope.addStudents = function(){
 			var event = $scope.event;
 			$scope.checkin();
-			if($scope.inList() == true && $scope.correctForm() == true){
+			if($scope.inList() == true && $scope.correctForm() == false){
 				$scope.ids= '';
 				return null;
 			}
-			if(scope.ids.length < 9){
+			if($scope.ids.length > 9){
 				return null;
 			}
 			event.studentIDs.push({ufid: $scope.ids, time: $scope.getTime(), peerFirst: $scope.authentication.user.firstName, peerLast: $scope.authentication.user.lastName});
@@ -222,13 +221,11 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		$scope.correctForm = function(){
 			if($scope.ids != null){
 			if($scope.ids.length == 8){
-				if($scope.ids.indexOf("-") > -1){
-					return true;
-				}
 				return false;
 			}
 			}
-			return true;
+			
+		return true;
 
 		};
 		$scope.inList = function(){
