@@ -11,15 +11,12 @@ describe('Create event page tests:', function() {
 	var enter =  browser.actions().sendKeys(protractor.Key.ENTER);
 
 	beforeEach(function() {
-		browser.get('http://localhost:3000/#!/signin');
-		element(by.id('username')).sendKeys('jimjohnson');
-		element(by.id('password')).sendKeys('jimjohnson');
-		enter.perform();
-
-		browser.get('http://localhost:3000/#!/events/create');
+		
 	});
 
 	it('should successfully create a new event and redirect', function() {
+		browser.get('http://localhost:3000/#!/events/create');
+		
 		name.sendKeys('test')
 		details.sendKeys('this is a test');
 		date.sendKeys('010100');

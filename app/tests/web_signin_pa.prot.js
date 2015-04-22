@@ -1,17 +1,19 @@
 'use strict';
 
-describe ('Administration Sign In:', function() {
+describe ('Peer Advisor Sign In:', function() {
 	var enter = browser.actions().sendKeys(protractor.Key.ENTER);
 	var username = element(by.id('username'));
 	var password = element(by.id('password'));
 	var error = element(by.binding('error'));
 	var URL_signin = 'http://localhost:3000/#!/signin';
+	var URL_signout = 'http://localhost:3000/auth/signout';
 	var user_invalid = 'test';
 	var user_valid = 'jimjohnson';
 	var pass_invalid = 'test';
 	var pass_valid = 'jimjohnson';
 
 	beforeEach(function() {
+		browser.get(URL_signout);
 		browser.get(URL_signin);
 	});
 
