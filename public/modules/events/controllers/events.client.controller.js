@@ -49,7 +49,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			if (id.length > 9){
 				if(id.length < 28 && id.length > 10){
 					console.log(id.length);
-					document.getElementById("swipeufid").value = id.substring(7,16);
+					document.getElementById("swipeufid").value = id.substring(6,15);
 
 				}
 				else{
