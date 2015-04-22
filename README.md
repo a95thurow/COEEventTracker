@@ -3,4 +3,10 @@
 
 # COEEventTracker
 CEN3031 project for the UF College of Engineering Power Up Attendance
->>>>>>> 42d4cf89c72c55ee461ad39d37f27979368c8054
+
+# Team:
+Alex Stewart
+Kevin McDonald
+Zach Landry
+Andrew Thurow
+Tiffany Dixon

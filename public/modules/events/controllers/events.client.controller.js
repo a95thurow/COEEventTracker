@@ -93,10 +93,8 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 					return true;
 				}
 
-			}
-			if($scope.authentication.user.roles == null){	
-			$location.path();
-			}
+			}	
+
 				return false;
 		};
 		$scope.shouldmargin = function(index, eventy){
@@ -150,7 +148,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 		 console.log(array);
 		 return array;
 
-	}
+	};
 		$scope.average = function(){
 			  var total = 0;
 			  var numevents = 0;
@@ -207,7 +205,6 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 			var event = $scope.event;
 			$scope.checkin();
 			if($scope.inList() == true || $scope.correctForm() == false){
-				console.log("made it");
 				$scope.ids= '';
 				return null;
 			}
@@ -221,7 +218,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 				$scope.error = errorResponse.data.message;
 			});
 				$scope.ids= '';
-			}
+				}
 		};
 		$scope.correctForm = function(){
 			if($scope.ids != null){
