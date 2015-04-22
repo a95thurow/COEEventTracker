@@ -5,8 +5,8 @@
 CEN3031 project for the UF College of Engineering Power Up Attendance
 
 # Team:
-Alex Stewart
-Kevin McDonald
-Zach Landry
-Andrew Thurow
-Tiffany Dixon
+Alex Stewart\n
+Kevin McDonald\n
+Zach Landry\n
+Andrew Thurow\n
+Tiffany Dixon\n
