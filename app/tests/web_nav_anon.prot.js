@@ -8,7 +8,7 @@ var URL = {
 
 	admin : 			'http://localhost:3000/' + '#!/admin',
 	admin_attendance : 	'http://localhost:3000/' + '#!/studentattendance',
-	admin_create : 		'http://localhost:3000/' + '#!/admins/create',
+	admin_create : 		'http://localhost:3000/' + '#!/signup',
 	admin_metrics : 	'http://localhost:3000/' + '#!/metrics',
 	admin_list : 		'http://localhost:3000/' + '#!/admins',
 	admin_login : 		'http://localhost:3000/' + '#!/signin',
@@ -20,7 +20,6 @@ var URL = {
 	events : 			'http://localhost:3000/' + '#!/events',
 	events_create : 	'http://localhost:3000/' + '#!/events/create',
 	home : 				'http://localhost:3000/' + '#!/',
-	student_checkin : 	'http://localhost:3000/' + '#!/checkin'
 };
 
 var TITLE = {
@@ -56,43 +55,13 @@ describe ('Anonymous User Navigation:', function() {
 			expect(browser.getTitle()).toEqual(TITLE.home);
 		});
 		
-		it ('Admin (blocked)', function() {
-			browser.get(URL.admin);
-			expect(browser.getCurrentUrl()).toEqual(URL.home);
-		});
-		
 		it ('Admin List (blocked)', function() {
 			browser.get(URL.admin_list);
-			expect(browser.getCurrentUrl()).toEqual(URL.home);
-		});
-		
-		it ('Admin Create (blocked)', function() {
-			browser.get(URL.admin_create);
 			expect(browser.getCurrentUrl()).toEqual(URL.home);
 		});
 
 		it ('Attendance (blocked)', function() {
 			browser.get(URL.admin_attendance);
-			expect(browser.getCurrentUrl()).toEqual(URL.home);
-		});
-		
-		it ('Checkin (blocked)', function() {
-			browser.get(URL.student_checkin);
-			expect(browser.getCurrentUrl()).toEqual(URL.home);
-		});
-
-		it ('Events (blocked)', function() {
-			browser.get(URL.events);
-			expect(browser.getCurrentUrl()).toEqual(URL.home);
-		});
-		
-		it ('Event Creation (blocked)', function() {
-			browser.get(URL.events_create);
-			expect(browser.getCurrentUrl()).toEqual(URL.home);
-		});
-		
-		it ('Metrics (blocked)', function() {
-			browser.get(URL.admin_metrics);
 			expect(browser.getCurrentUrl()).toEqual(URL.home);
 		});
 		
@@ -103,11 +72,6 @@ describe ('Anonymous User Navigation:', function() {
 		
 		it ('Admin Password (blocked)', function() {
 			browser.get(URL.admin_password);
-			expect(browser.getCurrentUrl()).toEqual(URL.home);
-		});
-		
-		it ('Admin Reset (blocked)', function() {
-			browser.get(URL.admin_passReset);
 			expect(browser.getCurrentUrl()).toEqual(URL.home);
 		});
 	});
