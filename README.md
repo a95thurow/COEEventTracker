@@ -3,8 +3,4 @@
 
 # COEEventTracker
 CEN3031 project for the UF College of Engineering Power Up Attendance
-
-Person-Gitub Username: Tiffany-TiffanyDixon  Andrew-a95thurow Zach-zlandry Kevin-kevinqmcdonald Alex-amstewart
-
-
-Note: Work is done by each individual in their dev branches, and then pushed to the sprint branch at the end of the sprint
+>>>>>>> 42d4cf89c72c55ee461ad39d37f27979368c8054

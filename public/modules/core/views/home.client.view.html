@@ -1,142 +1,244 @@
-<section   ng-app = "mwl.calendar" class="ng-cloak"  class = "ng-scope">
+<body>
 
-     <div class="container-fluid">
 
-      <div class="row" ng-controller="MainCtrl" id="demo">
-        <div class="col-md-8 col-md-offset-2">
-          <h2 class="text-center">{{ calendarControl.getTitle() }}</h2>
 
-          <div class="row">
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-            <div class="col-md-6 text-center">
-              <div class="btn-group">
+	
 
-                <button class="btn btn-primary" ng-click="calendarControl.prev()">Previous</button>
-                <button class="btn btn-default" ng-click="setCalendarToToday()">Today</button>
-                <button class="btn btn-primary" ng-click="calendarControl.next()">Next</button>
-              </div>
-            </div>
 
-            <br class="visible-xs visible-sm">
 
-            <div class="col-md-6 text-center">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-              <div class="btn-group">
-                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'year'">Year</label>
-                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'month'">Month</label>
-                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'week'">Week</label>
-                <label class="btn btn-primary" ng-model="calendarView" btn-radio="'day'">Day</label>
-              </div>
-            </div>
 
-          </div>
+    <!-- Bootstrap Core CSS -->
+    <link href="modules/squadfree/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-          <br>
+    <!-- Fonts -->
+    <link href="modules/squadfree/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="modules/squadfree/css/animate.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    <link href="modules/squadfree/css/style.css" rel="stylesheet">
+	<link href="modules/squadfree/color/default.css" rel="stylesheet">
+</head>
 
-          <mwl-calendar
-            calendar-events="events"
-            calendar-view="calendarView"
-            calendar-current-day="calendarDay"
-            calendar-control="calendarControl"
-            calendar-event-click="eventClicked($event)"
-            calendar-edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
-            calendar-delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
-            calendar-edit-event-click="eventEdited($event)"
-            calendar-delete-event-click="eventDeleted($event)"
-            calendar-auto-open="true"
-            calendar-day-view-start="06:00"
-            calendar-day-view-end="22:00"
-            ></mwl-calendar>
-             
+	
+<style type="text/css">
+.intro{
+	margin-top: -10%;
+}
+</style>
+	<!-- Section: intro -->
+    <section id="intro" class="intro">
+	
+		<div class="slogan">
+			<h2><span class="text_color">COE Event Tracker</span> </h2>
+			
+		</div>
+		<div class="page-scroll">
+			
+		</div>
+    </section>
 
-          <br><br><br>
 
-           <script type="text/ng-template" id="modalContent.html">
-            <div class="modal-header">
-              <h3 class="modal-title">Event action occurred!</h3>
-            </div>
-            <div class="modal-body">
-              <p>Action: <pre>{{ action }}</pre></p>
-              <p>Event: <pre>{{ event | json }}</pre></p>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary" ng-click="$modalInstance.close()">OK</button>
-            </div>
-          </script>
-            
 
-          <h3 id="event-editor">
-            Edit events
-            <button class="btn btn-primary pull-right" ng-click="events.push({title: 'New event', type: 'important'})">Add new</button>
-            <div class="clearfix"></div>
-          </h3>
+    <section id="service" class="home-section text-center bg-gray">
+		
+		<div class="heading-about">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="wow bounceInDown" data-wow-delay="0.4s">
+					<div class="section-heading">
 
-          <table class="table table-bordered">
+					<h3 id = "toasty">Welcome to the College of Engineering Events Page!</h3>
+					<p id = "toasty">Here you can find information about the upcoming events for the University of Florida College of Engineering. Click an event to view the information. Be sure to be swipe your student ID at the events you attend!</p>
+					<style type="text/css">
+							#toasty{
+								float:left;
+								text-align: left;
+							}
+						</style>
+						<br>
+					<h2>Upcoming Events</h2>
+					
 
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Type</th>
-                <th>Starts at</th>
-                <th>Ends at</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
 
-            <tbody>
-              <tr ng-repeat="event in events">
-                <td><input type="text" class="form-control" ng-model="event.title"></td>
-                <td>
-                  <select ng-model="event.type" class="form-control">
-                    <option value="important">Important</option>
-                    <option value="warning">Warning</option>
-                    <option value="info">Info</option>
-                    <option value="inverse">Inverse</option>
-                    <option value="success">Success</option>
-                    <option value="special">Special</option>
-                  </select>
-                </td>
-                <td>
-                  <p class="input-group" style="max-width: 250px">
-                    <input type="text" class="form-control" readonly datepicker-popup="medium" ng-model="event.starts_at" is-open="event.startOpen" close-text="Close" />
-                    <span class="input-group-btn">
-                      <button type="button" class="btn btn-default" ng-click="toggle($event, 'startOpen', event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                  </p>
-                  <timepicker ng-model="event.starts_at" hour-step="1" minute-step="15" show-meridian="true"></timepicker>
-                </td>
-                <td>
-                  <p class="input-group" style="max-width: 250px">
-                    <input type="text" class="form-control" readonly datepicker-popup="medium" ng-model="event.ends_at" is-open="event.endOpen" close-text="Close" />
-                    <span class="input-group-btn">
-                      <button type="button" class="btn btn-default" ng-click="toggle($event, 'endOpen', event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                  </p>
-                  <timepicker ng-model="event.ends_at" hour-step="1" minute-step="15" show-meridian="true"></timepicker>
-                </td>
-                <td><button class="btn btn-danger" ng-click="events.splice($index, 1)">Delete</button></td>
-                             <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-    <script src="//cdn.jsdelivr.net/angular.bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
-    <script src="src/app.js"></script>
-    <script src="docs/scripts/controllers/main.js"></script>
-    <script src="src/directives/mwlcalendar.js"></script>
-    <script src="src/filters/truncateEventTitle.js"></script>
-    <script src="src/services/calendarhelper.js"></script>
-    <script src="src/services/moment.js"></script>
-    <script src="src/directives/mwlcalendaryear.js"></script>
-    <script src="src/directives/mwlcalendarmonth.js"></script>
-    <script src="src/directives/mwlcalendarweek.js"></script>
-    <script src="src/directives/mwlcalendarday.js"></script>
+					<style type = "text/css">
+	/* LIST #4 */
+#list4 { font-family:Georgia, Times, serif; font-size:15px; }
+#list4 ul { list-style: none; }
+#list4 ul li { }
+#list4 ul li a { display:block; text-decoration:none; color:#000000; background-color:#FFFFFF; line-height:30px;
+  border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#CCCCCC; padding-left:10px; margin-right: -150%;cursor:pointer; }
+#list4 ul li a:hover { color:lightblue; background-image:url(../images/hover.png); background-repeat:repeat-x; }
+#list4 ul li a strong { margin-right:7%; }
+}
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-   
-              </tr>
-            </tbody>
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+#intro{
+	margin-top: 10%;
+}
+.eventinfo{
+	text-align: left;
+	width: 200%;
 
-          </table>
-        </div>
-      </div>
+	
+}
+#show{
+	display:none;
+}
+.test{
+	display:none;
+}
+</style>
+
+
+<div id="list4">
+   <script type="text/javascript">
+  	   $(document).ready(function(){
+
+   $("#showme").click(function () {
+    $("#show").toggle("fast");
+  });
+});
+
+		</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+   $("#showme2").click(function () {
+	 $("#show2").toggle("fast");
+  });
+});
+ </script>
+ <script type="text/javascript">
+  $(document).ready(function(){
+   $("#showme3").click(function () {
+	 $("#show3").toggle("fast");
+  });
+});
+ </script>
+ <script type="text/javascript">
+  $(document).ready(function(){
+   $("#showme4").click(function () {
+	 $("#show4").toggle("fast");
+  });
+});
+ </script>
+ <style type="text/css">
+	.list-group{
+		margin-left:15%;
+		width: 70%; 
+	}
+	</style>
+
+
+
+ 
+
+	
+	
+	
+
+<section data-ng-controller="EventsController" class = "go" data-ng-init="find()" >
+		
+    <div class="list-group">
+        <a data-ng-repeat = "event in futureevents() track by $index | limitTo:display_limit" data-ng-href="#!/events/{{event._id}}" class="list-group-item">
+			<h4  class="list-group-item-heading"  data-ng-bind="event.name"></h4>
+			 <p>{{event.date}} , {{event.time}}</p>
+
+        </a>
+           
 
     </div>
-     
-</section>
+    <br>
+    <br>
+
+
+    
+ 
+
+   <br>
+   <br>
+    
+
+    <h4>Students, view your points:</h4>
+    <input data-ng-model = "searchy" class="form-control"  type="text" placeholder="Type your UFID!">
+    <p>{{getInfo()}} points</p>
+
+	</section>
+
+
+
+
+</div>
+
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="container">
+			
+		</div>
+	</section>
+	<!-- /Section: services -->
+	
+<style type="text/css">
+#contact{
+	display: none;
+}
+</style>
+	
+
+	
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					<div class="wow shake" data-wow-delay="0.4s">
+					<div class="page-scroll marginbot-30">
+						<a href="#intro" id="totop" class="btn btn-circle">
+							<i class="fa fa-angle-double-up animated"></i>
+						</a>
+					</div>
+					</div>
+					<p>&copy;Copyright 2015 - DaSquad. All rights reserved.</p>
+				</div>
+			</div>	
+		</div>
+	</footer>
+
+    <!-- Core JavaScript Files -->
+    
+    <script src="modules/squadfree/js/bootstrap.min.js"></script>
+    <script src="modules/squadfree/js/jquery.easing.min.js"></script>	
+	<script src="modules/squadfree/js/jquery.scrollTo.js"></script>
+	<script src="modules/squadfree/js/wow.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="modules/squadfree/js/custom.js"></script>
+    <script src="modules/squadfree/js/jquery.leanModal.min.js"></script>
+
+</body>
+
+
+</html>
+
+
+

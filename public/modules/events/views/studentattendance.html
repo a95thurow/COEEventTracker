@@ -1,0 +1,96 @@
+<div data-ng-controller="EventsController" data-ng-show="isAdmin()">
+
+<style type="text/css">
+section{
+	margin-top: 7%;
+	margin-left: 0%;
+	background-color: lightblue;
+}
+</style>
+<section  data-ng-controller="EventsController" data-ng-init="findOne()">
+  <a class="btn btn-primary" href="#!/events/{{event._id}}" style = "float: left;">
+      <i class="glyphicon glyphicon-arrow-left"></i>
+    </a>
+<center><h1>Student Attendance</h1></center>
+</section>
+
+<style>
+.styled-select select {
+   background: white;
+   font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+   width: 268px;
+   padding: 5px;
+   font-size: 20px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   margin-left:0%;
+   -webkit-appearance: none;
+   }
+
+   .TFtable{
+    width:100%; 
+    border-collapse:collapse; 
+  }
+  .TFtable td{ 
+    padding:7px; border:#4e95f4 1px solid;
+  }
+  /* provide some minimal visual accomodation for IE8 and below */
+  .TFtable tr{
+    background: lightblue;
+  }
+  /*  Define the background color for all the ODD background rows  */
+  .TFtable tr:nth-child(odd){ 
+    background: lightblue;
+  }
+  /*  Define the background color for all the EVEN background rows  */
+  .TFtable tr:nth-child(even){
+    background: white;
+  }
+
+   #toasto{
+      float: right;
+      margin-bottom: 2%;
+   }
+</style>
+
+<br>
+<br>
+
+<section data-ng-controller="EventsController" data-ng-init="findOne()" nonvalidate>
+
+<div data-ng-controller="SettingsController" data-ng-init ="getTime()">
+<table class = "TFtable">
+ <thead>
+  <tr>
+      <th>Checked In By</th>
+      <th>School</th>
+      <th>ID Number</th>
+      <th>Time</th>
+      <th>Remove</th>
+  </tr>
+ </thead>
+
+ <tbody>
+  <tr data-ng-repeat = "ufid in event.studentIDs">
+    <td>{{ufid.peerFirst}} {{ufid.peerLast}}</td>
+    <td>UF</td>
+    <td>{{ufid.ufid}}</td>
+    <td>{{ufid.time}}</td>
+    <td><a class="btn btn-primary" data-ng-click="removeStudents($index);"><i class="glyphicon glyphicon-trash"></i></a></td>
+  </tr>
+ </tbody>
+  
+</table>
+
+</div>
+
+<a href = "/#!/events/{{event._id}}"  id = "toasto" style = "margin-top:3%;">
+            <b class="btn btn-default" id = "toasti">DONE</b>  
+         </a>  
+
+</section>
+</div>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+

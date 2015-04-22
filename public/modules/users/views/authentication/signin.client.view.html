@@ -1,75 +1,9 @@
-
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app = "test1">
-
-<head>
-
-	<title>COE Event Tracker</title>
-
-	<!-- General META -->
-	<meta charset="utf-8">
-	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-	<!-- Semantic META -->
-	<meta name="keywords" content="{{keywords}}">
-	<meta name="description" content="{{description}}">
-
-	<!-- Facebook META -->
-	<meta property="fb:app_id" content="{{facebookAppId}}">
-	<meta property="og:site_name" content="{{title}}">
-	<meta property="og:title" content="{{title}}">
-	<meta property="og:description" content="{{description}}">
-	<meta property="og:url" content="{{url}}">
-	<meta property="og:image" content="/img/brand/logo.png">
-	<meta property="og:type" content="website">
-
-	<!-- Twitter META -->
-	<meta name="twitter:title" content="{{title}}">
-	<meta name="twitter:description" content="{{description}}">
-	<meta name="twitter:url" content="{{url}}">
-	<meta name="twitter:image" content="/img/brand/logo.png">
-
-	<!-- Fav Icon -->
-	<link href="/modules/core/img/brand/favicon.ico" rel="shortcut icon" type="image/x-icon">
-		<link href="/modules/core/css/main.css" rel="stylesheet">
-
-	<!--Application CSS Files-->
-	<link href="/modules/core/css/core.css" rel="stylesheet">
-		<script type="text/javascript" src="/lib/angular/angular.js"></script>
-		<script type="text/javascript" src="gruntfile.js"></script>
-
-	<!-- HTML5 Shim -->
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	    
-	            <meta charset="utf-8">
-    <meta name="description" content="Angular bootstrap calendar demo">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="stylesheet" href="/modules/users/css/users.css">
-<link rel="stylesheet" href="/modules/core/css/core.css">
-<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.css">
-</head>
-
-<body >
-	 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/#">COE Event Tracker</a>
-        </div>
-        <ul class="nav navbar-nav hidden-xs">
-          <li><a href="/modules/users/views/authentication/signin.client.view.html">Sign In</a></li>
-          <li><a href="/modules/users/views/authentication/signup.client.view.html">Sign Up</a></li>
-        </ul>
-      </div>
-    </nav>
-	<section class="row" id="signinpage" data-ng-controller="AuthenticationController">
+<style type="text/css">
+#upto-calendar-container-KQeO{
+	display:none;
+}
+</style>
+<section class="row" id="signinpage" data-ng-controller="AuthenticationController">
 	<h3 class="col-md-12 text-center">Sign in below</h3>
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
@@ -86,29 +20,10 @@
 					<button type="submit" class="btn btn-primary">Sign in</button>
 				</div>
 				<div class="text-center forgot-password">
-					<a href="/modules/users/views/password/forgot-password.client.view.html">Forgot password?</a>
+					<a href="/#!/password/forgot">Forgot password?
 					<strong data-ng-bind="error"></strong>
 				</div>
 			</fieldset>
 		</form>
 	</div>
 </section>
-
-
-
-	<!--Embedding The User Object-->
-
-	<!--Application JavaScript Files-->
-
-	<!--Livereload script rendered -->
-	<script type="text/javascript" src="/modules/users/controllers/authentication.client.controller.js"></script>
-	<script type="text/javascript" src="/modules/users/controllers/password.client.controller.js"></script>
-	<script type="text/javascript" src="/modules/users/controllers/settings.client.controller.js"></script>
-	<script type="text/javascript" src="/modules/users/services/authentication.client.service.js"></script>
-		<script type="text/javascript" src="/modules/users/services/users.client.service.js"></script>
-	<script type="text/javascript" src="http://{{request.hostname}}:35729/livereload.js"></script>
-
-
-</body>
-
-</html>
