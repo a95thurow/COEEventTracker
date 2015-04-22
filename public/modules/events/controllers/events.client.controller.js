@@ -93,6 +93,7 @@ angular.module('events').controller('EventsController', ['$scope', '$stateParams
 					return true;
 				}
 			}	
+			$location.path('/');
 			return false;
 		};
 		$scope.shouldmargin = function(index, eventy){
